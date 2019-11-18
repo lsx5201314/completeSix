@@ -32,7 +32,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String,String> redisTemplate;
 
     /** @Author 原国庆
      * @Description: 登录验证
@@ -44,25 +44,30 @@ public class UserController {
     @ResponseBody
     public  Integer   loginCms(CmsUser cmsUser,HttpServletRequest request){
         String userKey=KEY+cmsUser.getCmsUserName();
-        CmsUser user = (CmsUser) redisTemplate.opsForValue().get(userKey);
-        if(user!=null){
-            if(cmsUser.getCmsUserPwd().equals(user.getCmsUserPwd())){
-                return 1;
-            }
+        if(redisTemplate.hasKey(userKey)){
+            String user1=redisTemplate.opsForValue().get(userKey);
+            CmsUser user = JSON.parseObject(user1, CmsUser.class);
+            if (user != null) {
+                if (cmsUser.getCmsUserPwd().equals(user.getCmsUserPwd())) {
+                    return 1;
+                }
                 return 2;
-        }
-        if(user==null){
-            CmsUser loginUser=userService.queryCmsUser(cmsUser.getCmsUserName());
-            if(cmsUser.getCmsUserPwd().equals(loginUser.getCmsUserPwd())){
-                redisTemplate.opsForValue().set(userKey,JSON.toJSONString(loginUser));
-                redisTemplate.expire(userKey,10,TimeUnit.DAYS);
-                HttpSession session = request.getSession();
-                session.setAttribute(session.getId(),loginUser);
-                return 1;
             }
-                return 2;
         }
-        return 3;
+            CmsUser loginUser = userService.queryCmsUser(cmsUser.getCmsUserName());
+            if (loginUser != null) {
+                if (cmsUser.getCmsUserPwd().equals(loginUser.getCmsUserPwd())) {
+                    redisTemplate.opsForValue().set(userKey, JSON.toJSONString(loginUser));
+                    redisTemplate.expire(userKey, 10, TimeUnit.MINUTES);
+                    HttpSession session = request.getSession();
+                    session.setAttribute(session.getId(), loginUser);
+                    return 1;
+                }
+                return 2;
+            }
+            return 3;
+
+
     }
     @RequestMapping("registerCmsUser")
     @ResponseBody
@@ -96,7 +101,7 @@ public class UserController {
         map.put("key","e72080c20a1c19d4f580490131315649");
         String key=yz+"";
         redisTemplate.opsForValue().set(cmsPhone,key);
-        redisTemplate.expire(cmsPhone,5, TimeUnit.MINUTES);
+        redisTemplate.expire(cmsPhone,5, TimeUnit.DAYS);
          HttpClientUtil.post(url, map);
         return yz;
       /*  int yz = r.nextInt(899999)+100000;
