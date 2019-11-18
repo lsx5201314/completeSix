@@ -1,6 +1,7 @@
 package com.jk.user.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+import com.alibaba.fastjson.JSON;
 import com.jk.user.model.CmsUser;
 import com.jk.user.service.UserService;
 import com.jk.user.util.HttpClientUtil;
@@ -21,6 +22,8 @@ import java.util.HashMap;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import static com.jk.user.constant.Constant.KEY;
+
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -31,12 +34,28 @@ public class UserController {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    /** @Author 原国庆
+     * @Description: 登录验证
+     * @Param: [cmsUser, request]
+     * @Return: java.lang.Integer
+     * @Create: 2019/11/18 8:42
+     */
     @RequestMapping("loginCms")
     @ResponseBody
     public  Integer   loginCms(CmsUser cmsUser,HttpServletRequest request){
-         CmsUser loginUser=userService.queryCmsUser(cmsUser.getCmsUserName());
-        if(loginUser!=null){
+        String userKey=KEY+cmsUser.getCmsUserName();
+        CmsUser user = (CmsUser) redisTemplate.opsForValue().get(userKey);
+        if(user!=null){
+            if(cmsUser.getCmsUserPwd().equals(user.getCmsUserPwd())){
+                return 1;
+            }
+                return 2;
+        }
+        if(user==null){
+            CmsUser loginUser=userService.queryCmsUser(cmsUser.getCmsUserName());
             if(cmsUser.getCmsUserPwd().equals(loginUser.getCmsUserPwd())){
+                redisTemplate.opsForValue().set(userKey,JSON.toJSONString(loginUser));
+                redisTemplate.expire(userKey,10,TimeUnit.DAYS);
                 HttpSession session = request.getSession();
                 session.setAttribute(session.getId(),loginUser);
                 return 1;
