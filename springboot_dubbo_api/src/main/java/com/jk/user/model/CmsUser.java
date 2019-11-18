@@ -18,9 +18,6 @@ public class CmsUser implements Serializable {
 
 
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
 
     public Integer getCmsUserId() {
         return cmsUserId;
