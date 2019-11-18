@@ -4,15 +4,22 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.jk.user.model.CmsUser;
 import com.jk.user.service.UserService;
 import com.jk.user.util.HttpClientUtil;
+import io.lettuce.core.dynamic.domain.Timeout;
+import org.omg.CORBA.TIMEOUT;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.sql.Time;
+import java.time.DateTimeException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 @RequestMapping("user")
@@ -20,6 +27,10 @@ public class UserController {
 
     @Reference(version = "1.1")
     private UserService userService;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @RequestMapping("loginCms")
     @ResponseBody
     public  Integer   loginCms(CmsUser cmsUser,HttpServletRequest request){
@@ -50,6 +61,10 @@ public class UserController {
     @RequestMapping("noteHint")
     @ResponseBody
     public Integer noteHint(String cmsPhone){
+        if(redisTemplate.hasKey(cmsPhone)){
+            String yzm = (String) redisTemplate.opsForValue().get(cmsPhone);
+            return Integer.parseInt(yzm);
+        }
         Random r = new Random();
         int yz = r.nextInt(899999)+100000;
         String url="http://v.juhe.cn/sms/send";
@@ -60,6 +75,9 @@ public class UserController {
         map.put("tpl_id",192642);
         map.put("tpl_value", "#code#="+yz);
         map.put("key","e72080c20a1c19d4f580490131315649");
+        String key=yz+"";
+        redisTemplate.opsForValue().set(cmsPhone,key);
+        redisTemplate.expire(cmsPhone,5, TimeUnit.MINUTES);
          HttpClientUtil.post(url, map);
         return yz;
       /*  int yz = r.nextInt(899999)+100000;
