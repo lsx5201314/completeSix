@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" >
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="author" content="CreativeLayers">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Boostrap style -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css">
+
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+
+    <!-- Reponsive -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/responsive.css">
+
+    <link rel="shortcut icon" href="/favicon/favicon.png">
+
+    <style>
+        body {
+            background: url(/favicon/log.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<!-- jquery -->
+<script type="text/javascript" src="/jquery-1.9.1.min.js"></script>
+<!-- bootstrap -->
+<link rel="stylesheet" href="/bootstrap3/css/bootstrap.css"/>
+<script type="text/javascript" src="/bootstrap3/js/bootstrap.js"></script>
+<body >
+
+<script type="text/javascript" src="/javascript/jquery.min.js"></script>
+<script type="text/javascript" src="/javascript/tether.min.js"></script>
+<script type="text/javascript" src="/javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascript/waypoints.min.js"></script>
+<script type="text/javascript" src="/javascript/jquery.circlechart.js"></script>
+<script type="text/javascript" src="/javascript/easing.js"></script>
+<script type="text/javascript" src="/javascript/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="/javascript/owl.carousel.js"></script>
+<script type="text/javascript" src="/javascript/smoothscroll.js"></script>
+<script type="text/javascript" src="/javascript/jquery-ui.js"></script>
+<script type="text/javascript" src="/javascript/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
+<script type="text/javascript" src="/javascript/gmap3.min.js"></script>
+<script type="text/javascript" src="/javascript/waves.min.js"></script>
+<script type="text/javascript" src="/javascript/jquery.countdown.js"></script>
+<script type="text/javascript" src="/javascript/main.js"></script>
+<!--bootstarp弹框-->
+<script type="text/javascript" src="/bootstrap-bootbox/bootbox.js"></script>
+
+<!--<form class="form-horizontal" id="registerFormIdd">
+       账号 :<span th:text="${cms.cmsUserName}"></span><br>
+    手机号：<span th:text="${cms.cmsUserPhone.substring(0,3)+'****'+cms.cmsUserPhone.substring(7)}"></span><br>
+    验证码： <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+</form>-->
+
+<input type="hidden" id="phoneHiddenId">
+<input type="hidden" id="userHiddenId">
+<div class="container" style="margin-top: 50px">
+    <div class="row" id="loginDiv">
+        <div class="col-md-6">
+            <!--这个容器市居右-->
+        </div><!-- /.col-md-6 -->
+        <div class="col-md-6">
+            <div class="form-login">
+                <div class="title">
+                    <h3>找回密码</h3>
+                </div>
+                <form id="loginForm" accept-charset="utf-8" >
+                    <div class="form-box">
+                        <label for="name-login">手机号或邮箱</label>
+                        <input type="text" id="name-login"   name="cmsUserName" disabled="none">
+                        <!--//<span th:text="${cms.cmsUserName}"></span>-->
+                    </div><!-- /.form-box -->
+                    <div class="form-box">
+                        <label for="phone-login">手机号</label>
+                        <input type="text" id="phone-login" name="cmsUserPwd" disabled="none">
+                    </div><!-- /.form-box -->
+                    <div class="form-inline">
+                        <label for="security-register" class="col-sm-2 control-label">验证码</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" id="security-register" size="8px" onblur="yzyzm()">
+                            <span id="securityId"></span>
+                        </div>
+                        <input class="btn btn-default" onclick="sendPhoneCode()" type="button" size="8px" id="registerCodeId" value="发送验证码">
+                    </div><!-- /.form-box -->
+                    <div class="form-box">
+                        <button type="button" onclick="zhaohuiMM()" class="login">提交</button>
+                        <a href="../to/cmsLogin" title="">返回登录</a>
+                    </div><!-- /.form-box -->
+                </form><!-- /#form-login -->
+            </div><!-- /.form-login -->
+        </div><!-- /.col-md-6 -->
+    </div><!-- /.row -->
+</div>
+<script th:inline="javascript">
+    $(function(){
+        initData()
+    })
+
+
+    function initData(){
+        var message = [[${cms}]];
+        alert(message.cmsUserName)
+        $("#name-login").val(message.cmsUserName);
+        $("#phone-login").val(message.cmsUserPhone.substring(0,3)+"****"+message.cmsUserPhone.substring(7));
+        $("#phoneHiddenId").val(message.cmsUserPhone);
+        $("#userHiddenId").val(message.cmsUserId);
+    }
+
+
+        var InterValObj; //timer变量，控制时间
+        var count = 60; //间隔函数，1秒执行
+        var curCount;//当前剩余秒数
+        //发送手机验证码
+        var yzm='';
+        function sendPhoneCode(){
+            curCount = count;
+            //设置button效果，开始计时
+            //$("#btnSendCode").attr("disabled", "true");
+            $("#registerCodeId").val(curCount + "秒后重新发送");
+            $("#registerCodeId").removeAttr("onclick");
+            InterValObj = window.setInterval(SetRemainTime2, 1000); //启动计时器，1秒执行一次
+                $.ajax({
+                    url:"../user/noteHint",
+                    type:"post",
+                    async:true,
+                    data:{'cmsPhone':$("#phoneHiddenId").val()},
+                    success:function(data){
+                        yzm=data;
+                    }
+                })
+            return yzm;
+        }
+
+
+        //timer处理函数
+        function SetRemainTime2() {
+            if (curCount == 1) {
+                window.clearInterval(InterValObj);//停止计时器
+                //$("#btnSendCode").removeAttr("disabled");//启用按钮
+                $("#registerCodeId").attr("onclick","sendPhoneCode();");
+                $("#registerCodeId").val("免费获取");
+            }
+            else {
+                curCount--;
+                $("#registerCodeId").val(curCount + "秒后重新发送");
+            }
+        }
+        
+        function  zhaohuiMM() {
+            var zhaohuiyzm=$("#security-register").val()
+            alert(yzm)
+            if(yzm==zhaohuiyzm){
+                bootbox.dialog({
+                    title: "修改密码",
+                    message: createAddContent("../to/updatePwd"),
+                    closeButton: true
+                })
+                return ;
+            }else {
+                bootbox.alert({
+                    size: "modal-lg",
+                    title: "提示",
+                    message: "验证码不正确"
+                })
+            }
+        }
+
+    var res;
+    function createAddContent(url){     //弹框通过这个返回整个页面对象
+        $.ajax({
+            url:url,
+            async:false,
+            success:function(data){
+                res = data;
+            }
+        });
+        return res;
+    }
+
+    </script>
+</body>
+</html>

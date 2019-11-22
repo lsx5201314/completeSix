@@ -8,8 +8,15 @@
     </select>
 
     <insert id="addCmsUser" parameterType="com.jk.user.model.CmsUser">
-        insert into cms_user(cmsUserName,cmsUserPwd,cmsUserDate,cmsPhone) values
-        (#{cmsUserName},#{cmsUserPwd},#{cmsUserDate},#{cmsPhone})
+        insert into cms_user(cmsUserName,cmsUserPwd,cmsUserDate,cmsUserPhone) values
+        (#{cmsUserName},#{cmsUserPwd},#{cmsUserDate},#{cmsUserPhone})
     </insert>
 
+    <select id="queryForgetPwd" resultType="com.jk.user.model.CmsUser">
+        select *  from cms_user where cmsUserName=#{cmsUserName}
+    </select>
+
+    <update id="updatePwd" parameterType="com.jk.user.model.CmsUser">
+        update cms_user set  cmsUserPwd=#{cmsUserPwd}  where  cmsUserId=#{cmsUserId}
+    </update>
   </mapper>

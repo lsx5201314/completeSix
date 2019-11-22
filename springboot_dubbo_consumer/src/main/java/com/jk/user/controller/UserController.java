@@ -10,13 +10,12 @@ import org.omg.CORBA.TIMEOUT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.sql.Time;
-import java.time.DateTimeException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
@@ -35,7 +34,7 @@ public class UserController {
     private RedisTemplate<String,String> redisTemplate;
 
     /** @Author 原国庆
-     * @Description: 登录验证
+     * @Description: 登录验证+缓存redis
      * @Param: [cmsUser, request]
      * @Return: java.lang.Integer
      * @Create: 2019/11/18 8:42
@@ -49,6 +48,8 @@ public class UserController {
             CmsUser user = JSON.parseObject(user1, CmsUser.class);
             if (user != null) {
                 if (cmsUser.getCmsUserPwd().equals(user.getCmsUserPwd())) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute(session.getId(), user);
                     return 1;
                 }
                 return 2;
@@ -69,19 +70,26 @@ public class UserController {
 
 
     }
+
+    /** @Author 原国庆
+     * @Description: 新增注册用户信息
+     * @Param: [cmsUser]
+     * @Return: java.lang.Integer
+     * @Create: 2019/11/18 15:02
+     */
     @RequestMapping("registerCmsUser")
     @ResponseBody
-    public  Integer registerCmsUser(CmsUser cmsUser){
-        cmsUser.setCmsUserDate(new Date());
-        try {
+    public  void registerCmsUser(CmsUser cmsUser){
+            cmsUser.setCmsUserDate(new Date());
             userService.addCmsUser(cmsUser);
-            return 1;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return 2;
     }
 
+    /** @Author 原国庆
+     * @Description: 注册短信接口
+     * @Param: [cmsPhone]
+     * @Return: java.lang.Integer
+     * @Create: 2019/11/18 15:04
+     */
     @RequestMapping("noteHint")
     @ResponseBody
     public Integer noteHint(String cmsPhone){
@@ -96,23 +104,49 @@ public class UserController {
         HashMap<String, Object> map = new HashMap<>();
         map.put("mobile",cmsPhone);
         //六脉短信 198843
-        map.put("tpl_id",192642);
+        map.put("tpl_id",192669);
         map.put("tpl_value", "#code#="+yz);
-        map.put("key","e72080c20a1c19d4f580490131315649");
+        map.put("key","d79d603e4a2a2d5594c1605d81b7a3cc");
         String key=yz+"";
         redisTemplate.opsForValue().set(cmsPhone,key);
-        redisTemplate.expire(cmsPhone,5, TimeUnit.DAYS);
-         HttpClientUtil.post(url, map);
+        redisTemplate.expire(cmsPhone,5, TimeUnit.HOURS);
+        // HttpClientUtil.post(url, map);
         return yz;
-      /*  int yz = r.nextInt(899999)+100000;
-        String url = "http://v.juhe.cn/sms/send";
-        HashMap<String,Object> m = new HashMap<String,Object>();
-        m.put("mobile", phone);
-        m.put("tpl_id", 192582);
-        m.put("tpl_value", "#code#="+yz);
-        m.put("key", "d5967d957fe4af4f9379fdac68115bd7");
-        HttpClientUtil.post(url,m);
-        return yz;*/
     }
 
+    /** @Author 原国庆
+     * @Description: 忘记密码回显
+     * @Param: [cmsUserName, model]
+     * @Return: java.lang.String
+     * @Create: 2019/11/19 11:59
+     */
+    @RequestMapping("forgetPwd")
+    public String forgetPwd(String cmsUserName,Model model){
+        CmsUser cmsUser=userService.queryForgetPwd(cmsUserName);
+        model.addAttribute("cms",cmsUser);
+        return "forget";
+    }
+
+    /** @Author 原国庆
+     * @Description: 短信验证修改密码
+     * @Param: [cmsUser]
+     * @Return: void
+     * @Create: 2019/11/19 11:59
+     */
+    @RequestMapping("updatePwd")
+    @ResponseBody
+    public void   updatePwd(CmsUser cmsUser){
+        userService.updatePwd(cmsUser);
+    }
+
+    @RequestMapping("queryCmsUserName")
+    @ResponseBody
+    public Integer  queryCmsUserName(CmsUser cmsUser){
+        CmsUser user=userService.queryForgetPwd(cmsUser.getCmsUserName());
+        if(user!=null){
+            return 1;
+        }else{
+            return 2;
+        }
+    }
 }

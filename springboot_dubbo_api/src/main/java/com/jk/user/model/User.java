@@ -1,7 +1,10 @@
 package com.jk.user.model;
 
-public class User {
+import java.io.Serializable;
 
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -3369096114491090859L;
     private Integer userId;
 
     private String userName;

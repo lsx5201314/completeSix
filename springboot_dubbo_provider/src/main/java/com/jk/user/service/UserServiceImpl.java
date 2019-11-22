@@ -21,4 +21,14 @@ public class UserServiceImpl implements UserService {
     public void addCmsUser(CmsUser cmsUser) {
         userMapper.addCmsUser(cmsUser);
     }
+
+    @Override
+    public CmsUser queryForgetPwd(String cmsUserName) {
+        return userMapper.queryForgetPwd(cmsUserName);
+    }
+
+    @Override
+    public void updatePwd(CmsUser cmsUser) {
+        userMapper.updatePwd(cmsUser);
+    }
 }
