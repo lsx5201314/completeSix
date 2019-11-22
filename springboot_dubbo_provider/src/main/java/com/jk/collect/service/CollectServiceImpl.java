@@ -23,10 +23,8 @@ public class CollectServiceImpl implements CollectService {
     private CollectMapper collectMapper;
 
     @Override
-    public List<Collect> queryCollect(HttpServletRequest request) {
-        String id = request.getSession().getId();
-        User user = (User) request.getAttribute(id);
-        return collectMapper.queryCollect(user.getUserId());
+    public List<Collect> queryCollect(Integer id) {
+        return collectMapper.queryCollect(id);
     }
 
     @Override
@@ -35,9 +33,7 @@ public class CollectServiceImpl implements CollectService {
     }
 
     @Override
-    public void addCollect(Integer commodityId,HttpServletRequest request) {
-        String id = request.getSession().getId();
-        User user = (User) request.getAttribute(id);
-        collectMapper.addCollect(user.getUserId(),commodityId);
+    public void addCollect(Integer commodityId,Integer id) {
+        collectMapper.addCollect(id,commodityId);
     }
 }

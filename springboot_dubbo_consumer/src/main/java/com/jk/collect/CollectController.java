@@ -3,6 +3,7 @@ package com.jk.collect;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.jk.collect.model.Collect;
 import com.jk.collect.service.CollectService;
+import com.jk.user.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,7 +29,9 @@ public class CollectController {
     @RequestMapping("queryCollect")
     @ResponseBody
     public List<Collect> queryCollect(HttpServletRequest request){
-        return collectService.queryCollect(request);
+        String id = request.getSession().getId();
+        User user = (User) request.getSession().getAttribute(id);
+        return collectService.queryCollect(user.getUserId());
     }
 
     @RequestMapping("deleteCollect")
@@ -41,7 +44,9 @@ public class CollectController {
     @RequestMapping("addCollect")
     @ResponseBody
     public void addCollect(Integer commodityId,HttpServletRequest request){
-        collectService.addCollect(commodityId,request);
+        String id = request.getSession().getId();
+        User user = (User) request.getSession().getAttribute(id);
+        collectService.addCollect(commodityId,user.getUserId());
     }
 
     @RequestMapping("tocollect")
