@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springboot_dubbo_consumer" />
-        <module name="springboot_dubbo_api" />
-        <module name="springboot_dubbo_provider" />
         <module name="sixpulse" />
+        <module name="springboot_dubbo_api" />
         <module name="groupone" />
+        <module name="springboot_dubbo_consumer" />
+        <module name="Six-pulse" />
+        <module name="springboot_dubbo_provider" />
       </profile>
     </annotationProcessing>
   </component>
