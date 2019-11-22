@@ -10,12 +10,11 @@ public class CmsUser implements Serializable {
     private static final long serialVersionUID = 8511848585157966663L;
 
     private Integer cmsUserId;
-    private String cmsPhone;
+    private String cmsUserPhone;
     private String  cmsUserName;
     private String  cmsUserPwd;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date cmsUserDate;
-
 
 
 
@@ -27,12 +26,12 @@ public class CmsUser implements Serializable {
         this.cmsUserId = cmsUserId;
     }
 
-    public String getCmsPhone() {
-        return cmsPhone;
+    public String getCmsUserPhone() {
+        return cmsUserPhone;
     }
 
-    public void setCmsPhone(String cmsPhone) {
-        this.cmsPhone = cmsPhone;
+    public void setCmsUserPhone(String cmsUserPhone) {
+        this.cmsUserPhone = cmsUserPhone;
     }
 
     public String getCmsUserName() {
@@ -63,7 +62,7 @@ public class CmsUser implements Serializable {
     public String toString() {
         return "CmsUser{" +
                 "cmsUserId=" + cmsUserId +
-                ", cmsPhone='" + cmsPhone + '\'' +
+                ", cmsUserPhone='" + cmsUserPhone + '\'' +
                 ", cmsUserName='" + cmsUserName + '\'' +
                 ", cmsUserPwd='" + cmsUserPwd + '\'' +
                 ", cmsUserDate=" + cmsUserDate +

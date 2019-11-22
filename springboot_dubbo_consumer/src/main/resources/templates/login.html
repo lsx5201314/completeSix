@@ -55,6 +55,9 @@
 <!--bootstarp弹框-->
 <script type="text/javascript" src="/bootstrap-bootbox/bootbox.js"></script>
 
+
+<script src="../jquery.cookie.js"></script>
+
 			<div class="container" style="margin-top: 50px">
 				<div class="row" id="loginDiv">
 					<div class="col-md-6">
@@ -72,15 +75,18 @@
 								</div><!-- /.form-box -->
 								<div class="form-box">
 									<label for="password-login">密码 </label>
-									<input type="text" id="password-login" name="cmsUserPwd" placeholder="******">
-								</div><!-- /.form-box -->
-								<div class="form-box checkbox">
-									<input type="checkbox" id="remember" checked  name="remember">
-									<label for="remember">记住密码</label>
+									<input type="password" id="password-login" name="cmsUserPwd" placeholder="******">
 								</div><!-- /.form-box -->
 								<div class="form-box">
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<button type="button" onclick="loginCmsUser()" class="login">登录</button>
-									<a href="#" title="">忘记密码？</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								</div><!-- /.form-box -->
+								<div class="form-box checkbox">
+									<a href="javascript:forgetPassword()" title="">忘记密码？</a>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<a href="javascript:register()" title="">注册</a>
 								</div><!-- /.form-box -->
 							</form><!-- /#form-login -->
@@ -97,32 +103,33 @@
 							<form id="registerForm" accept-charset="utf-8">
 								<div class="form-box">
 									<label for="name-login">手机号或邮箱</label>
-									<input type="text" id="name-register" name="cmsUserName" placeholder="Ali" onblur="yzName()">
+									<input type="text" id="name-register" name="cmsUserName" placeholder="手机号或邮箱" onblur="yzName()">
 									<span id="nameId"></span>
 								</div><!-- /.form-box -->
 								<div class="form-box">
 									<label for="password-login">密码 </label>
-									<input type="text" id="password-register" name="cmsUserPwd" placeholder="******" onblur="yzPwd()" maxlength=16>
+									<input type="password" id="password-register" name="cmsUserPwd" placeholder="******" onblur="yzPwd()" maxlength=16>
 									<span id="pwdId"></span>
 								</div><!-- /.form-box -->
 
 								<div class="form-box">
 									<label for="Phone-register">手机号</label>
-									<input type="text" id="Phone-register" name="cmsPhone" placeholder="133****2253" onblur="yzPhone()">
+									<input type="text" id="Phone-register" name="cmsUserPhone" placeholder="133****2253" onblur="yzPhone()">
 									<span id="phoneId"></span>
 								</div><!-- /.form-box -->
 
 								<div class="form-inline">
 									<label for="password-register" class="col-sm-2 control-label">验证码</label>
-									<div class="col-sm-6">
-										<input type="text" class="form-control" id="security-register" onblur="yzyzm()">
+									<div class="col-sm-4">
+										<input type="text" class="form-control" id="security-register" onblur="yzyzm()" size="8px">
 										<span id="securityId"></span>
 									</div>
-									<input class="btn btn-default" onclick="sendPhoneCode()" type="button" id="codeId" value="发送验证码">
+									<input class="btn btn-default" onclick="sendPhoneCode()" type="button" id="codeId" size="5px" value="发送验证码">
 								</div><!-- /.form-box -->
 
 								<div class="form-box">
-									<button type="button" class="login" onclick="registerVerify()">注册</button>
+									<button type="button" class="login" onclick="registerVerify()">注册</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a href="../to/cmsLogin">登录</a>
 								</div><!-- /.form-box -->
 							</form><!-- /#form-login -->
 						</div><!-- /.form-login -->
@@ -133,6 +140,11 @@
 <script>
 	$(function(){
 		$("#registerDiv").hide()
+		if ($.cookie("rmbUser") == "true") {
+			$("#rememberMe").attr("checked", true);
+			$("#NameText").val($.cookie("username"));
+			$("#inputPassword").val($.cookie("password"));
+		}
 	})
 	
 	function loginCmsUser() {
@@ -142,7 +154,7 @@
 			data:$("#loginForm").serialize(),
 			success:function (data) {
 				if(data==1){
-					location.href="1";
+					location.href="/to/index";
 				}else if (data==2){
 					bootbox.alert({
 						size: "small",
@@ -185,28 +197,27 @@
 		var re=/^\w+@[a-z0-9]+\.[a-z]{2,4}$/
 		var reg=/^1[0-9]{10}$/;
 		if(reg.test(regiserCmsName)||re.test(regiserCmsName)){
+			$("#nameId").html("")
 			return true;
 		}
-			$("#nameId").html("<font colr='red'>用户名不符合规则</font>")
+			$("#nameId").html("用户名不符合规则")
 			return false;
 	}
 
 	function yzPwd() {
 		var pwd=$("#password-register").val();
 		var reg=/^[0-9a-zA-Z]{8,16}$/;
-		alert(pwd.length)
 		if(reg.test(pwd)){
-			if(8<pwd.length && pwd.length<11){
-				alert(33333333)
-				$("#pwdId").html("<font colr='red'>密码强度低</font>")
-				return true;
-			}
 			$("#pwdId").html("")
 			return true;
 		}
-			$("#pwdId").html("<font colr='red'>密码强度太低</font>")
+			$("#pwdId").html("密码强度太低")
 			return false;
 	}
+
+
+
+
 
 	function yzPhone(){
 		var phone=$("#Phone-register").val();
@@ -215,42 +226,35 @@
 			$("#phoneId").html("")
 			return true;
 		}
-			$("#phoneId").html("<font color='red'>电话格式不对</font>")
+			$("#phoneId").html("电话格式不对")
 			return false;
 	}
 
 	function  yzyzm(){
+
 		var yz=$("#security-register").val();
+		alert(yzm+""+yz)
 		if(yz==yzm){
+			$("#securityId").html("")
 			return true;
 		}
-		$("#securityId").html("<font color='red'>验证码不正确</font>")
+		$("#securityId").html("验证码不正确")
 		return false;
 	}
 	function registerVerify() {
-
+		alert($("#registerForm").serialize())
 		if(yzName()&yzPhone()&yzPwd()&yzyzm()){
-			alert($("#registerForm").serialize())
 			$.ajax({
 				url:"../user/registerCmsUser",
 				type:"post",
 				data:$("#registerForm").serialize(),
 				success:function(data){
-					alert(data)
-					if(data==1){
 						bootbox.alert({
 							size: "small",
 							title: "提示",
 							message: "注册成功请登录"
 						})
-						location.href="index.html";
-					}else{
-						bootbox.alert({
-							size: "small",
-							title: "提示",
-							message: "系统繁忙请稍后再试"
-						})
-					}
+						location.href="../to/cmsLogin";
 				}
 			})
 		}
@@ -262,23 +266,29 @@
 	//发送手机验证码
 	var yzm='';
 	function sendPhoneCode(){
+		if(!yzPhone()){
+				bootbox.alert({
+					size: "modal-lg",
+					title: "提示",
+					message: "请输入正确的手机号"
+			})
+			return ;
+		}
 		curCount = count;
 		//设置button效果，开始计时
 		//$("#btnSendCode").attr("disabled", "true");
 		$("#codeId").val(curCount + "秒后重新发送");
 		$("#codeId").removeAttr("onclick");
 		InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
-		if(yzPhone()){
 			$.ajax({
 				url:"../user/noteHint",
 				type:"post",
-				async:false,
+				async:true,
 				data:{'cmsPhone':$("#Phone-register").val()},
 				success:function(data){
 					yzm=data;
 				}
 			})
-		}
 		return yzm;
 	}
 	//timer处理函数
@@ -293,6 +303,64 @@
 			curCount--;
 			$("#codeId").val(curCount + "秒后重新发送");
 		}
+	}
+	//记住密码 用不了
+	/*function save() {
+		alert(1)
+		if ($("#remember").prop("checked")) {
+			alert(2)
+			var str_username = $("#name-login").val();//用户名
+			var str_password = $("#password-login").val();//密码
+			$.cookie("rmbUser", "true", { expires: 7 }); //存储一个带7天期限的cookie
+			$.cookie("username", str_username, { expires: 7 });
+			$.cookie("password", str_password, { expires: 7 });
+		}
+		else {
+			$.cookie("rmbUser", "false", { expire: -1 });
+			$.cookie("username", "", { expires: -1 });
+			$.cookie("password", "", { expires: -1 });
+		}
+	};*/
+	//忘记密码
+	function forgetPassword(){
+		if($("#name-login").val()!=""){
+			$.ajax({
+				url:"../user/queryCmsUserName",
+				type:"post",
+				data:{cmsUserName:$("#name-login").val()},
+				success:function (data) {
+					if(data!=1){
+						bootbox.alert({
+							size: "modal-lg",
+							title: "提示",
+							message: "该用户不存在，请注册"
+						})
+						return  ;
+					}
+					location.href="../user/forgetPwd?cmsUserName="+$("#name-login").val();
+				}
+			})
+
+		}else{
+			bootbox.alert({
+				size: "modal-lg",
+				title: "提示",
+				message: "请输入用户名"
+			})
+		}
+
+	}
+
+	var res;
+	function createAddContent(url){     //弹框通过这个返回整个页面对象
+		$.ajax({
+			url:url,
+			async:false,
+			success:function(data){
+				res = data;
+			}
+		});
+		return res;
 	}
 </script>
 
