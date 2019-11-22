@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input name="price" id="price">
+<input type="button" onclick="toPay()" value="去支付">
+<script>
+
+    function toPay(){
+        location.href="..//goAlipay?price="+document.getElementById("price").value;
+    }
+</script>
+</body>
+</html>
