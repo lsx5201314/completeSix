@@ -522,7 +522,7 @@
              <tfoot>
                     <tr class="first last">
                       <td colspan="50" class="a-right last"><button type="button" title="Continue Shopping" class="button btn-continue" onclick="toIndex()"><span>继续购物</span></button>
-                        <button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update"><span>更新购物车</span></button>
+                        <!--<button type="submit" name="update_cart_action" value="update_qty" title="Update Cart" class="button btn-update"><span>更新购物车</span></button>-->
                         <button type="submit" name="update_cart_action" value="empty_cart" title="Clear Cart" class="button btn-empty" id="empty_cart_button"><span>清空购物车</span></button></td>
                     </tr>
                   </tfoot>
@@ -1254,12 +1254,12 @@
         this.delFlag = false;
       },
       removeMyCartByGoodsId:function(id){
-        alert(id)
         $.ajax({
           url:"../mycart/removeMyCartByGoodsId",
           data:{id:id},
           success:function(){
-           alert(删除成功)
+            alert("删除成功")
+            location.reload();
             this.cartView();
           }
         })

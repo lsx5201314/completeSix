@@ -1,5 +1,6 @@
 package com.jk.mycart.controller;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.jk.comd.model.Commodity;
 import com.jk.common.CommonConf;
@@ -7,7 +8,6 @@ import com.jk.entity.model.Result;
 import com.jk.mycart.service.MyCartService2;
 import com.jk.user.model.CmsUser;
 import com.jk.utils.CookieUtil;
-import jdk.nashorn.internal.ir.annotations.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;

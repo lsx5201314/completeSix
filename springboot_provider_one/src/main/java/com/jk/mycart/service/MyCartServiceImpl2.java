@@ -1,10 +1,10 @@
 package com.jk.mycart.service;
 
+import com.alibaba.dubbo.config.annotation.Service;
 import com.jk.comd.model.Commodity;
 import com.jk.mycart.mapper.MyCartMapper2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,7 +19,7 @@ public class MyCartServiceImpl2 implements MyCartService2 {
     @Override
     public List<Commodity> findCartListFromRedis( String redisMyCartKey ) {
         /*  List<Cart> cartList = (List<Cart>) redisTemplate.boundHashOps("cartList").get(username);*/
-        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,redisTemplate.opsForList().size(redisMyCartKey));
+        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,-1);
         if(cartList==null){
             cartList=new ArrayList();
         }
@@ -56,7 +56,7 @@ public class MyCartServiceImpl2 implements MyCartService2 {
 
     @Override
     public Integer queryMyCartAllPrice( String redisMyCartKey ) {
-        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,redisTemplate.opsForList().size(redisMyCartKey));
+        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,-1);
         Integer myCartAllPrice=0;
         for (Commodity cart:cartList) {
             myCartAllPrice+=cart.getProductNum()*(int)cart.getCommodityPrice();
@@ -66,7 +66,7 @@ public class MyCartServiceImpl2 implements MyCartService2 {
 
     @Override
     public void removeMyCartByGoodsId( String id, String redisMyCartKey ) {
-        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,redisTemplate.opsForList().size(redisMyCartKey));
+        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,-1);
       /*  for (Commodity cart:cartList) {
             if((cart.getProductId()+"").equals(id)){
                 cartList.remove(cart);

@@ -102,7 +102,7 @@
                 <div class="row">
                     <div class="col-sm-3 col-md-3 col-xs-12">
                         <!-- Header Logo -->
-                        <div class="logo"><a title="e-commerce" href="index.html"><img alt="e-commerce" src="../images2/logo.png"></a> </div>
+                        <div class="logo"><a title="e-commerce" href="../to/index"><img alt="e-commerce" src="../images2/logo.png"></a> </div>
                         <!-- End Header Logo -->
                     </div>
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-6">
@@ -112,22 +112,15 @@
                             <div id="search">
                                 <form>
                                     <div class="input-group">
-                                        <select class="cate-dropdown hidden-xs hidden-sm" name="category_id">
-                                            <option>All Categories</option>
-                                            <option>women</option>
-                                            <option>&nbsp;&nbsp;&nbsp;Accessories </option>
-                                            <option>&nbsp;&nbsp;&nbsp;Dresses</option>
-                                            <option>&nbsp;&nbsp;&nbsp;Top</option>
-                                            <option>&nbsp;&nbsp;&nbsp;Handbags </option>
-                                            <option>&nbsp;&nbsp;&nbsp;Shoes </option>
-                                            <option>&nbsp;&nbsp;&nbsp;Clothing </option>
-                                            <option>Men</option>
-                                            <option>Electronics</option>
-                                            <option>&nbsp;&nbsp;&nbsp;Mobiles </option>
-                                            <option>&nbsp;&nbsp;&nbsp;Music &amp; Audio </option>
+                                        <select class="cate-dropdown hidden-xs hidden-sm" name="category_id" onchange="selecFacon(this.value)">
+                                            <!--主搜有下拉-->
+                                            <option  value="">所有分类</option>
+                                            <option value="1">手机</option>
+                                            <option value="2">电脑</option>
+                                            <option value="3">电视</option>
                                         </select>
-                                        <input type="text" class="form-control" placeholder="Search" name="search">
-                                        <button class="btn-search" type="button"><i class="fa fa-search"></i></button>
+                                        <input type="text" class="form-control" placeholder="Search" name="search"  id="headinputid">
+                                        <button class="btn-search" type="button" onclick="queryTypeHead()"><i class="fa fa-search"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -186,41 +179,31 @@
                     <div class="main-menu">
                         <nav>
                             <ul>
-                                <li class="custom-menu"><a href="index.html">Home</a>
+                                <li ><a href="javascript:queryType(1)">手机</a>
                                     <ul class="dropdown">
-                                        <li><a href="../Version1/index.html">Home Version 1</a></li>
-                                        <li><a href="../Version2/index.html">Home Version 2</a></li>
-                                        <li><a href="../Version3/index.html">Home Version 3</a></li>
-                                        <li><a href="../Version4/index.html">Home Version 4</a></li>
-                                        <li><a href="index.html">Home Version 5</a></li>
+
+                                        <span id="phoneIdd"></span>
 
                                     </ul>
                                 </li>
-                                <li class="megamenu"><a href="shop_grid.html">Men</a>
-                                    <div class="mega-menu"> <span> <a class="mega-title" href="#">Clothing </a> <a href="shop_grid.html">Casual shirt</a> <a href="shop_grid.html">Trousers</a> <a href="shop_grid.html">Suits & Blazers </a> <a href="shop_grid.html">Sportswear </a> </span> <span> <a class="mega-title" href="#">Jewellery </a> <a href="shop_grid.html">Gold</a> <a href="shop_grid.html">Platinum</a> <a href="shop_grid.html">Rings </a> <a href="shop_grid.html">Neckwear </a> </span> <span> <a class="mega-title" href="#">Shoes </a> <a href="shop_grid.html">Sports & Outdoor</a> <a href="shop_grid.html">Mocassins</a> <a href="shop_grid.html">Sneakers </a> <a href="shop_grid.html">Formal Shoes </a> </span> <span class="mega-menu-img hidden-sm"> <a href="shop_grid.html"><img src="../images2/menu-img1.jpg" alt="Bannar 1"></a> </span> <span> <a class="mega-title" href="#">Eyewear </a> <a href="shop_grid.html">Backpacks</a> <a href="shop_grid.html">Ray-Ban</a> <a href="shop_grid.html">Opium </a> <a href="shop_grid.html">Joe Black </a> </span> <span> <a class="mega-title" href="#">Watches </a> <a href="shop_grid.html">Fastrack </a> <a href="shop_grid.html">Timex </a> <a href="shop_grid.html">Citizen</a> <a href="shop_grid.html">Titan </a> </span> <span> <a class="mega-title" href="#">Accessories </a> <a href="shop_grid.html">Handbags</a> <a href="shop_grid.html">Sunglasses</a> <a href="shop_grid.html">Clutches </a> <a href="shop_grid.html">Backpacks </a> </span> </div>
-                                </li>
-                                <li class="megamenu"><a href="shop_grid.html">Women</a>
-                                    <div class="mega-menu"> <span class="mega-menu-img left hidden-sm"> <a href="shop_grid.html"><img src="../images2/menu-img2.jpg" alt="Bannar 2"></a> </span> <span> <a class="mega-title" href="#">Clothing </a> <a href="shop_grid.html">Casual shirt</a> <a href="shop_grid.html">Trousers</a> <a href="shop_grid.html">Suits & Blazers </a> <a href="shop_grid.html">Sportswear </a> </span> <span> <a class="mega-title" href="#">Jewellery </a> <a href="shop_grid.html">Gold</a> <a href="shop_grid.html">Platinum</a> <a href="shop_grid.html">Rings </a> <a href="shop_grid.html">Neckwear </a> </span> <span> <a class="mega-title" href="#">Shoes </a> <a href="shop_grid.html">Sports & Outdoor</a> <a href="shop_grid.html">Mocassins</a> <a href="shop_grid.html">Sneakers </a> <a href="shop_grid.html">Formal Shoes </a> </span> <span> <a class="mega-title" href="#">Eyewear </a> <a href="shop_grid.html">Backpacks</a> <a href="shop_grid.html">Ray-Ban</a> <a href="shop_grid.html">Opium </a> <a href="shop_grid.html">Joe Black </a> </span> <span> <a class="mega-title" href="#">Watches </a> <a href="shop_grid.html">Fastrack </a> <a href="shop_grid.html">Timex </a> <a href="shop_grid.html">Citizen</a> <a href="shop_grid.html">Titan </a> </span> <span> <a class="mega-title" href="#">Accessories </a> <a href="shop_grid.html">Handbags</a> <a href="shop_grid.html">Sunglasses</a> <a href="shop_grid.html">Clutches </a> <a href="shop_grid.html">Backpacks </a> </span> </div>
-                                </li>
-                                <li class="megamenu"><a href="shop_grid.html">Children</a>
-                                    <div class="mega-menu"> <span> <a class="mega-title" href="#">Baby clothing </a> <a href="shop_grid.html">Casual shirt</a> <a href="shop_grid.html">Trousers</a> <a href="shop_grid.html">Suits & Blazers </a> <a href="shop_grid.html">Sportswear </a> </span> <span> <a class="mega-title" href="#">Boys </a> <a href="shop_grid.html">Clothing</a> <a href="shop_grid.html">Shoes</a> <a href="shop_grid.html">Watches </a> <a href="shop_grid.html">Sunglasses </a> </span> <span> <a class="mega-title" href="#">Girls </a> <a href="shop_grid.html">Baby Girl</a> <a href="shop_grid.html">Shoes</a> <a href="shop_grid.html">Watches </a> <a href="shop_grid.html">Sunglasses </a> </span> <span class="mega-menu-img hidden-sm"> <a href="shop_grid.html"><img src="../images2/menu-img3.jpg" alt="Bannar 3"></a> </span> </div>
-                                </li>
-                                <li class="megamenu"><a href="shop_grid.html">Pages</a>
-                                    <div class="mega-menu"> <span> <a class="mega-title" href="#">Shop Pages </a> <a href="shop_grid.html"> Shop grid </a> <a href="shop_grid_right_sidebar.html"> Shop grid right sidebar</a> <a href="shop_list.html"> Shop list </a> <a href="shop_list_right_sidebar.html"> Shop list right sidebar</a> <a href="shop_grid_full_width.html"> Shop Full width </a> <a href="single_product_right_sidebar.html"> single product right sidebar</a> </span> <span> <a class="mega-title" href="#">Ecommerce Pages </a> <a href="wishlist.html"> Wishlists </a> <a href="checkout.html"> Checkout </a> <a href="compare.html"> Compare </a> <a href="shopping_cart.html"> Shopping cart </a> <a href="quick_view.html"> Quick View </a> <a href="single_product_magnify_zoom.html"> single product magnify zoom</a> </span> <span> <a class="mega-title" href="#">Product Categories </a> <a href="single_product.html"> single product </a> <a href="single_product_left_sidebar.html"> single product left sidebar</a> <a href="cat-3-col.html"> 3 Column Sidebar </a> <a href="cat-4-col.html"> 4 Column Sidebar</a> <a href="cat-4-col-full.html"> 4 Column Full width </a> <a href="col3-sidebar.html"> col3 Sidebar</a> </span> <span> <a class="mega-title" href="#">Static Pages </a> <a href="account_page.html"> Create Account Page </a> <a href="about_us.html"> About Us </a> <a href="contact_us.html"> Contact us </a> <a href="404error.html"> Error 404 </a> <a href="faq.html"> FAQ </a> </span> </div>
-                                </li>
-                                <li class="custom-menu"><a href="blog.html">Blog</a>
+                                <li ><a href="javascript:queryType(2)">电脑</a>
                                     <ul class="dropdown">
-                                        <li> <a href="blog_right_sidebar.html"> Blog &ndash; Right Sidebar </a></li>
-                                        <li> <a href="blog_left_sidebar.html"> Blog &ndash; Left Sidebar </a></li>
-                                        <li><a href="blog_full_width.html"> Blog &ndash; Full-Width </a></li>
-                                        <li><a href="single_post.html"> Single post </a> </li>
+
+                                        <span id="compIdd"></span>
+
                                     </ul>
                                 </li>
-                                <li><a href="contact_us.html">Contact</a></li>
+                                <li ><a href="javascript:queryType(3)">电视</a>
+                                    <ul class="dropdown">
+
+                                        <span id="tevleIdd"></span>
+
+                                    </ul>
+                                </li>
                             </ul>
                         </nav>
                         <!-- Signup -->
-                        <p class="top-Signup"><a href="#" class="" role="button" data-toggle="modal" data-target="#login-modal">Login/Signup</a></p>
+                        <p class="top-Signup"><span id="loginIdd"></span></p>
                         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -465,8 +448,8 @@
             <div class="row">
                 <div class="col-xs-12">
                     <ul>
-                        <li class="home"> <a title="Go to Home Page" href="index.html">Home</a><span>&raquo;</span></li>
-                        <li><strong>Wishlist</strong></li>
+                        <li class="home"> <a title="Go to Home Page" href="../to/index">主页</a><span>&raquo;</span></li>
+                        <li><strong>我的关注</strong></li>
                     </ul>
                 </div>
             </div>
@@ -491,36 +474,31 @@
                 <aside class="right sidebar col-sm-3 col-xs-12">
                     <div class="sidebar-account block">
                         <div class="sidebar-bar-title">
-                            <h3>My Account</h3>
+                            <h3>我的账户</h3>
                         </div>
                         <div class="block-content">
                             <ul>
-                                <li><a>Account Dashboard</a></li>
-                                <li><a href="#">Account Information</a></li>
-                                <li><a href="#">Address Book</a></li>
-                                <li><a href="#">My Orders</a></li>
-                                <li><a href="#">Billing Agreements</a></li>
-                                <li><a href="#">Recurring Profiles</a></li>
-                                <li><a href="#">My Product Reviews</a></li>
-                                <li><a href="#">My Tags</a></li>
-                                <li class="current"><a href="#">My Wishlist</a></li>
-                                <li><a href="#">My Downloadable</a></li>
-                                <li class="last"><a href="#">Newsletter Subscriptions</a></li>
+                                <li><a href="../toCart">我的购物车</a></li>
+                                <li><a href="#">我的订单</a></li>
+                                <li><a href="#">我的评论</a></li>
+                                <li><a href="#">收货地址设置</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="compare block">
                         <div class="sidebar-bar-title">
-                            <h3>Compare Products (2)</h3>
+                            <h3>商业合作</h3>
                         </div>
                         <div class="block-content">
                             <ol id="compare-items">
-                                <li class="item"> <a href="#" title="Remove This Item" class="remove-cart"><i class="icon-close"></i></a> <a href="#" class="product-name">Vestibulum porta tristique porttitor.</a> </li>
-                                <li class="item"> <a href="#" title="Remove This Item" class="remove-cart"><i class="icon-close"></i></a> <a href="#" class="product-name">Lorem ipsum dolor sit amet</a> </li>
+                                <li class="item"><a href="http://www.baidu.com">百度搜索</a></li>
+                                <li class="item"><a href="http://www.sina.com">新浪微博</a></li>
+                                <li class="item"><a href="http://www.baidu.com">异清轩博</a>客</li>
                             </ol>
                             <div class="ajax-checkout">
-                                <button type="submit" title="Submit" class="button button-compare"> <span><i class="fa fa-signal"></i> Compare</span></button>
-                                <button type="submit" title="Submit" class="button button-clear"> <span><i class="fa fa-eraser"></i> Clear All</span></button>
+                                <button type="submit" title="Submit" class="button button-compare"> <span><i class="fa fa-signal"></i></span>欢迎来电，联系热线：400-8888-888</button>
+
+                                <button onclick="location.href='https://tieba.baidu.com/f?kw=jd'" type="submit" title="Submit" class="button button-clear" style="margin-left: 70px;margin-top: 5px"> <span ><i class="fa fa-eraser"></i>关于我们</span></button>
                             </div>
                         </div>
                     </div>
@@ -577,6 +555,8 @@
 <script>
     $(function () {
         collect();
+        loginUserAndLongout();
+        initTypeTwo();
     })
     function collect() {
         var aa = "   <thead>\n" +
@@ -605,8 +585,9 @@
             })
     }
     function jiaru(commodityId,id) {
-        alert(commodityId);
-        alert(id);
+        location.href="../commodity/queryCommodityById?id="+commodityId;
+        //alert(commodityId);
+        //alert(id);
     }
     function deleteCollect(id) {
         $.ajax({
@@ -627,6 +608,77 @@
         })
         alert(commodityIds)
         alert(ids)
+    }
+
+    <!--主搜索下拉响应时间-->
+    function selecFacon(id){
+        location.href="../tosolr/tosolrshow?flag="+id;
+    }
+
+
+    <!--注销-->
+    function Longout(){
+        location.href="../comd/loginOut";
+    }
+
+
+    <!--登录-->
+    function loginUserAndLongout(){
+        $.ajax({
+            url:"../comd/loginAndLoginout",
+            type:"post",
+            success:function(data){
+                if(data.cmsUser!==111){
+                    $("#loginIdd").html('<button data-toggle="modal" style="font-weight:bold;font-size:20px" role="button" onclick="Longout()" id="login_register_btn" type="button" class="btn btn-link">注销</button>')
+                }else{
+                    $("#loginIdd").html('<button data-toggle="modal" style="font-weight:bold;font-size:20px" role="button" onclick="loginAgain()" id="login_register_btn" type="button" class="btn btn-link">登录</button>')
+                }
+            }
+        })
+    }
+
+
+    function queryTypeHead(){
+        var data = $("#headinputid").val();
+        queryType(data);
+    }
+    <!--标签框-->
+    function queryType(id){
+        location.href="../tosolr/tosolrshow?flag="+id;
+    }
+
+
+    <!--查询红框类型-->
+    function initTypeTwo(){
+        $.ajax({
+            url:"../comd/queryTypeTwo",
+            type:"post",
+            dataType:"json",
+            success:function(data){
+                var count=0;
+                for(var i=0;i<data.length;i++){
+                    var phoneInfo="";
+                    count++;
+                    var id="";
+                    var text="";
+                    var arr=data[i].productBrand_Id.split(",");
+                    var arr1=data[i].productBrand_name.split(",");
+                    var arrlength=arr.length;
+                    for(var j=0;j<arrlength;j++){
+                        phoneInfo+='<li><a href="javascript:queryType('+arr[j]+')">'+arr1[j]+'</a></li>'
+                    }
+                    if(count==1){
+                        $("#phoneIdd").html(phoneInfo)
+                    }
+                    if(count==2){
+                        $("#compIdd").html(phoneInfo)
+                    }
+                    if(count==3){
+                        $("#tevleIdd").html(phoneInfo)
+                    }
+                }
+            }
+        })
     }
 </script>
 

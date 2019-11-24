@@ -127,13 +127,13 @@
                                             <div onclick="jiaAdd()" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
                                         </div>
                                     </div>
-                                    <button class="button add-to-cart" title="添加到购物车"><span class="button pro-add-to-cart"><i class="fa fa-shopping-cart"></i>添加到购物车</span></button>
+                                    <button class="button" onclick="addcart()" title="添加到购物车"><span class="button pro-add-to-cart"><i class="fa fa-shopping-cart"></i>添加到购物车</span></button>
                                 </form>
                             </div>
                             <div class="product-cart-option">
                                 <ul>
-                                    <li><a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014#"><i class="fa fa-heart"></i><span>添加到我的收藏</span></a></li>
-                                    <li><a href="http://127.0.0.1:8083/commodity/queryCommodityById?id=11330014" class="add-to-cart"><i class="fa fa-retweet"></i><span>添加到购物车</span></a></li>
+                                    <li><a href="javascript:addcollect()"><i class="fa fa-heart"></i><span>添加到我的收藏</span></a></li>
+                                    <li><a class="add-to-cart"><i class="fa fa-retweet"></i><span>添加到购物车</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -486,16 +486,26 @@
 
 
                             $(".add-to-cart").click(function(event){
-                                /*  var count=$("#qty").val();
+                                  var count=$("#qty").val();
                                   $.ajax({
-                                      url:"../views/mycart/addGoodsToCartList",
-                                      data:{count:count},
+                                      url:"../mycart/addGoodsToCartList",
+                                      data:{num:count,itemId:$("#goodsIds").text()},
                                       success:function(){
-                                          location.href="../views/commodity/queryCommodityById?id="+$("#goodsIds").text();
+                                         alert("添加购物车成功");
                                       }
-                                  })*/
-                                alert(123);
+                                  })
                             })
+
+                            function addcart(){
+                                var count=$("#qty").val();
+                                $.ajax({
+                                    url:"../mycart/addGoodsToCartList",
+                                    data:{num:count,itemId:$("#goodsIds").text()},
+                                    success:function(){
+                                        alert("添加购物车成功");
+                                    }
+                                })
+                            }
 
 
                             function toShowGoodsInfo(){
@@ -521,6 +531,17 @@
                                     $("#qty").val(qty);
                                 }
                                 return false;
+                            }
+
+
+                            function addcollect(){
+                                //alert($('#goodsIds').text())
+                                $.ajax({
+                                    url:"../collect/addCollect?commodityId="+$('#goodsIds').text(),
+                                    success:function (data) {
+                                        alert("已加入我的关注")
+                                    }
+                                })
                             }
                         </script>
 
