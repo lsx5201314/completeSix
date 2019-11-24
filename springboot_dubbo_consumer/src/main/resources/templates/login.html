@@ -22,7 +22,6 @@
 	<!-- Reponsive -->
 	<link rel="stylesheet" type="text/css" href="/stylesheets/responsive.css">
 
-	<link rel="shortcut icon" href="/favicon/favicon.png">
 	<style>
 		body {
 			background: url(/favicon/log.png);
@@ -36,106 +35,106 @@
 <body class="row bg">
 
 <!-- Javascript -->
-<script type="text/javascript" src="/javascript/jquery.min.js"></script>
-<script type="text/javascript" src="/javascript/tether.min.js"></script>
-<script type="text/javascript" src="/javascript/bootstrap.min.js"></script>
-<script type="text/javascript" src="/javascript/waypoints.min.js"></script>
-<script type="text/javascript" src="/javascript/jquery.circlechart.js"></script>
-<script type="text/javascript" src="/javascript/easing.js"></script>
-<script type="text/javascript" src="/javascript/jquery.flexslider-min.js"></script>
-<script type="text/javascript" src="/javascript/owl.carousel.js"></script>
-<script type="text/javascript" src="/javascript/smoothscroll.js"></script>
-<script type="text/javascript" src="/javascript/jquery-ui.js"></script>
-<script type="text/javascript" src="/javascript/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="/javascript2/jquery.min.js"></script>
+<script type="text/javascript" src="/javascript2/tether.min.js"></script>
+<script type="text/javascript" src="/javascript2/bootstrap.min.js"></script>
+<script type="text/javascript" src="/javascript2/waypoints.min.js"></script>
+<script type="text/javascript" src="/javascript2/jquery.circlechart.js"></script>
+<script type="text/javascript" src="/javascript2/easing.js"></script>
+<script type="text/javascript" src="/javascript2/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="/javascript2/owl.carousel.js"></script>
+<script type="text/javascript" src="/javascript2/smoothscroll.js"></script>
+<script type="text/javascript" src="/javascript2/jquery-ui.js"></script>
+<script type="text/javascript" src="/javascript2/jquery.mCustomScrollbar.js"></script>
 <script type="text/javascript" src="http://ditu.google.cn/maps/api/js?key=AIzaSyBtRmXKclfDp20TvfQnpgXSDPjut14x5wk&region=GB"></script>
-<script type="text/javascript" src="/javascript/gmap3.min.js"></script>
-<script type="text/javascript" src="/javascript/waves.min.js"></script>
-<script type="text/javascript" src="/javascript/jquery.countdown.js"></script>
-<script type="text/javascript" src="/javascript/main.js"></script>
+<script type="text/javascript" src="/javascript2/gmap3.min.js"></script>
+<script type="text/javascript" src="/javascript2/waves.min.js"></script>
+<script type="text/javascript" src="/javascript2/jquery.countdown.js"></script>
+<script type="text/javascript" src="/javascript2/main.js"></script>
 <!--bootstarp弹框-->
 <script type="text/javascript" src="/bootstrap-bootbox/bootbox.js"></script>
 
 
 <script src="../jquery.cookie.js"></script>
 
-			<div class="container" style="margin-top: 50px">
-				<div class="row" id="loginDiv">
-					<div class="col-md-6">
-						<!--这个容器市居右-->
-					</div><!-- /.col-md-6 -->
-					<div class="col-md-6">
-						<div class="form-login">
-							<div class="title">
-								<h3>登录</h3>
-							</div>
-							<form id="loginForm" accept-charset="utf-8">
-								<div class="form-box">
-									<label for="name-login">手机号或邮箱</label>
-									<input type="text" id="name-login" name="cmsUserName" placeholder="Ali">
-								</div><!-- /.form-box -->
-								<div class="form-box">
-									<label for="password-login">密码 </label>
-									<input type="password" id="password-login" name="cmsUserPwd" placeholder="******">
-								</div><!-- /.form-box -->
-								<div class="form-box">
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<button type="button" onclick="loginCmsUser()" class="login">登录</button>
-								</div><!-- /.form-box -->
-								<div class="form-box checkbox">
-									<a href="javascript:forgetPassword()" title="">忘记密码？</a>
-									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<a href="javascript:register()" title="">注册</a>
-								</div><!-- /.form-box -->
-							</form><!-- /#form-login -->
-						</div><!-- /.form-login -->
-					</div><!-- /.col-md-6 -->
-				</div><!-- /.row -->
-				<div class="row" id="registerDiv">
-					<div class="col-md-6">
-						<!--这个容器市居右-->
-					</div><!-- /.col-md-6 -->
-					<div class="col-md-6">
-						<div class="form-login">
-								<h3>注册</h3>
-							<form id="registerForm" accept-charset="utf-8">
-								<div class="form-box">
-									<label for="name-login">手机号或邮箱</label>
-									<input type="text" id="name-register" name="cmsUserName" placeholder="手机号或邮箱" onblur="yzName()">
-									<span id="nameId"></span>
-								</div><!-- /.form-box -->
-								<div class="form-box">
-									<label for="password-login">密码 </label>
-									<input type="password" id="password-register" name="cmsUserPwd" placeholder="******" onblur="yzPwd()" maxlength=16>
-									<span id="pwdId"></span>
-								</div><!-- /.form-box -->
+<div class="container" style="margin-top: 50px">
+	<div class="row" id="loginDiv">
+		<div class="col-md-6">
+			<!--这个容器市居右-->
+		</div><!-- /.col-md-6 -->
+		<div class="col-md-6">
+			<div class="form-login">
+				<div class="title">
+					<h3>登录</h3>
+				</div>
+				<form id="loginForm" accept-charset="utf-8">
+					<div class="form-box">
+						<label for="name-login">手机号或邮箱</label>
+						<input type="text" id="name-login" name="cmsUserName" placeholder="Ali">
+					</div><!-- /.form-box -->
+					<div class="form-box">
+						<label for="password-login">密码 </label>
+						<input type="password" id="password-login" name="cmsUserPwd" placeholder="******">
+					</div><!-- /.form-box -->
+					<div class="form-box">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button type="button" onclick="loginCmsUser()" class="login">登录</button>
+					</div><!-- /.form-box -->
+					<div class="form-box checkbox">
+						<a href="javascript:forgetPassword()" title="">忘记密码？</a>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="javascript:register()" title="">注册</a>
+					</div><!-- /.form-box -->
+				</form><!-- /#form-login -->
+			</div><!-- /.form-login -->
+		</div><!-- /.col-md-6 -->
+	</div><!-- /.row -->
+	<div class="row" id="registerDiv">
+		<div class="col-md-6">
+			<!--这个容器市居右-->
+		</div><!-- /.col-md-6 -->
+		<div class="col-md-6">
+			<div class="form-login">
+				<h3>注册</h3>
+				<form id="registerForm" accept-charset="utf-8">
+					<div class="form-box">
+						<label for="name-login">手机号或邮箱</label>
+						<input type="text" id="name-register" name="cmsUserName" placeholder="手机号或邮箱" onblur="yzName()">
+						<span id="nameId"></span>
+					</div><!-- /.form-box -->
+					<div class="form-box">
+						<label for="password-login">密码 </label>
+						<input type="password" id="password-register" name="cmsUserPwd" placeholder="******" onblur="yzPwd()" maxlength=16>
+						<span id="pwdId"></span>
+					</div><!-- /.form-box -->
 
-								<div class="form-box">
-									<label for="Phone-register">手机号</label>
-									<input type="text" id="Phone-register" name="cmsUserPhone" placeholder="133****2253" onblur="yzPhone()">
-									<span id="phoneId"></span>
-								</div><!-- /.form-box -->
+					<div class="form-box">
+						<label for="Phone-register">手机号</label>
+						<input type="text" id="Phone-register" name="cmsUserPhone" placeholder="请按此格式输入：133****2253" onblur="yzPhone()">
+						<span id="phoneId"></span>
+					</div><!-- /.form-box -->
 
-								<div class="form-inline">
-									<label for="password-register" class="col-sm-2 control-label">验证码</label>
-									<div class="col-sm-4">
-										<input type="text" class="form-control" id="security-register" onblur="yzyzm()" size="8px">
-										<span id="securityId"></span>
-									</div>
-									<input class="btn btn-default" onclick="sendPhoneCode()" type="button" id="codeId" size="5px" value="发送验证码">
-								</div><!-- /.form-box -->
+					<div class="form-inline">
+						<label for="password-register" class="col-sm-2 control-label">验证码</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" id="security-register" onblur="yzyzm()" size="8px">
+							<span id="securityId"></span>
+						</div>
+						<input class="btn btn-default" onclick="sendPhoneCode()" type="button" id="codeId" size="5px" value="发送验证码">
+					</div><!-- /.form-box -->
 
-								<div class="form-box">
-									<button type="button" class="login" onclick="registerVerify()">注册</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<a href="../to/cmsLogin">登录</a>
-								</div><!-- /.form-box -->
-							</form><!-- /#form-login -->
-						</div><!-- /.form-login -->
-					</div><!-- /.col-md-6 -->
-				</div><!-- /.row -->
-			</div><!-- /.container -->
+					<div class="form-box">
+						<button type="button" class="login" onclick="registerVerify()">注册</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<a href="../to/cmsLogin">登录</a>
+					</div><!-- /.form-box -->
+				</form><!-- /#form-login -->
+			</div><!-- /.form-login -->
+		</div><!-- /.col-md-6 -->
+	</div><!-- /.row -->
+</div><!-- /.container -->
 
 <script>
 	$(function(){
@@ -146,7 +145,7 @@
 			$("#inputPassword").val($.cookie("password"));
 		}
 	})
-	
+
 	function loginCmsUser() {
 		$.ajax({
 			url:"../user/loginCms",
@@ -176,21 +175,21 @@
 		$("#registerDiv").show();
 	}
 
-/*	var yzm='';
-	function resendSecurity(){
-		if(yzPhone()){
-			$.ajax({
-				url:"../user/noteHint",
-				type:"post",
-				async:false,
-				data:{'cmsPhone':$("#Phone-register").val()},
-				success:function(data){
-					yzm=data;
-				}
-			})
-		}
-		return yzm;
-	}*/
+	/*	var yzm='';
+        function resendSecurity(){
+            if(yzPhone()){
+                $.ajax({
+                    url:"../user/noteHint",
+                    type:"post",
+                    async:false,
+                    data:{'cmsPhone':$("#Phone-register").val()},
+                    success:function(data){
+                        yzm=data;
+                    }
+                })
+            }
+            return yzm;
+        }*/
 
 	function  yzName(){
 		var regiserCmsName=$("#name-register").val();
@@ -200,8 +199,8 @@
 			$("#nameId").html("")
 			return true;
 		}
-			$("#nameId").html("用户名不符合规则")
-			return false;
+		$("#nameId").html("用户名不符合规则")
+		return false;
 	}
 
 	function yzPwd() {
@@ -211,8 +210,8 @@
 			$("#pwdId").html("")
 			return true;
 		}
-			$("#pwdId").html("密码强度太低")
-			return false;
+		$("#pwdId").html("密码强度太低")
+		return false;
 	}
 
 
@@ -226,8 +225,8 @@
 			$("#phoneId").html("")
 			return true;
 		}
-			$("#phoneId").html("电话格式不对")
-			return false;
+		$("#phoneId").html("电话格式不对")
+		return false;
 	}
 
 	function  yzyzm(){
@@ -249,12 +248,12 @@
 				type:"post",
 				data:$("#registerForm").serialize(),
 				success:function(data){
-						bootbox.alert({
-							size: "small",
-							title: "提示",
-							message: "注册成功请登录"
-						})
-						location.href="../to/cmsLogin";
+					bootbox.alert({
+						size: "small",
+						title: "提示",
+						message: "注册成功请登录"
+					})
+					location.href="../to/cmsLogin";
 				}
 			})
 		}
@@ -267,10 +266,10 @@
 	var yzm='';
 	function sendPhoneCode(){
 		if(!yzPhone()){
-				bootbox.alert({
-					size: "modal-lg",
-					title: "提示",
-					message: "请输入正确的手机号"
+			bootbox.alert({
+				size: "modal-lg",
+				title: "提示",
+				message: "请输入正确的手机号"
 			})
 			return ;
 		}
@@ -280,15 +279,15 @@
 		$("#codeId").val(curCount + "秒后重新发送");
 		$("#codeId").removeAttr("onclick");
 		InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
-			$.ajax({
-				url:"../user/noteHint",
-				type:"post",
-				async:true,
-				data:{'cmsPhone':$("#Phone-register").val()},
-				success:function(data){
-					yzm=data;
-				}
-			})
+		$.ajax({
+			url:"../user/noteHint",
+			type:"post",
+			async:true,
+			data:{'cmsPhone':$("#Phone-register").val()},
+			success:function(data){
+				yzm=data;
+			}
+		})
 		return yzm;
 	}
 	//timer处理函数
@@ -364,5 +363,5 @@
 	}
 </script>
 
-</body>	
+</body>
 </html>

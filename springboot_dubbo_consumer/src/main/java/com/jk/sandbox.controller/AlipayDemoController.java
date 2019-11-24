@@ -130,7 +130,7 @@ public class AlipayDemoController {
     @RequestMapping("view")
     public String view(){
 
-        return "toIndex";
+        return "index";
     }
 
     @RequestMapping("notify")

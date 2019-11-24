@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("commodity")
 public class CommodityController {
-    @Reference(
-            version = "1.0"
-    )
+    @Reference(version = "1.0")
     private CommodityService commodityService;
 
     public CommodityController() {
@@ -29,7 +27,7 @@ public class CommodityController {
 
     @RequestMapping("queryCommodityById")
     public String queryCommodityById(Integer id, Model model) {
-        Map map = this.commodityService.queryCommodityById(id);
+        Map map = commodityService.queryCommodityById(id);
         model.addAttribute("commodity", map);
         return "showCommoditys";
     }
@@ -37,28 +35,21 @@ public class CommodityController {
     @RequestMapping("queryColorList")
     @ResponseBody
     public List queryColorList(Integer id) {
-        List list = this.commodityService.queryColorList(id);
+        List list = commodityService.queryColorList(id);
         return list;
     }
 
     @RequestMapping("queryVersionsList")
     @ResponseBody
     public List queryVersionsList() {
-        List m = this.commodityService.queryVersionsList();
+        List m = commodityService.queryVersionsList();
         return m;
     }
 
     @RequestMapping("changeColororVersion")
     @ResponseBody
     public List changeColororVersion(Integer id, Integer flag) {
-        List list = this.commodityService.changeColororVersion(id, flag);
+        List list = commodityService.changeColororVersion(id, flag);
         return list;
     }
-
-    @RequestMapping("queryTypeCommodity")
-    public List queryTypeCommodity(Integer id) {
-        List list = this.commodityService.queryTypeCommodity(id);
-        return list;
-    }
-
 }

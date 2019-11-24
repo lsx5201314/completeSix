@@ -81,6 +81,27 @@ public class Commodity implements Serializable {
 
     private String productBrandname;
 
+    private Integer productNum;
+
+
+    private String AllPriceProduct;
+
+    public String getAllPriceProduct() {
+        return AllPriceProduct;
+    }
+
+    public void setAllPriceProduct(String allPriceProduct) {
+        AllPriceProduct = allPriceProduct;
+    }
+
+    public Integer getProductNum() {
+        return productNum;
+    }
+
+    public void setProductNum(Integer productNum) {
+        this.productNum = productNum;
+    }
+
     public Integer getProductId() {
         return productId;
     }
