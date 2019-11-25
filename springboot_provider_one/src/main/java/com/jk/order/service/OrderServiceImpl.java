@@ -10,7 +10,9 @@ public class OrderServiceImpl  implements OrderService {
     private OrderMapper orderMapper;
 
     @Override
-    public void updOrderStatus(String orderId) {
+    public void updOrderStatus(String orderId,Integer count) {
+
         orderMapper.updOrderStatus(orderId);
+        orderMapper.updCommoditys(count,orderId);
     }
 }

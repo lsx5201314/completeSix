@@ -261,7 +261,7 @@ jQuery(function() {
                     A.event.special.mousewheel = {
                         setup: function() {
                             if (this.addEventListener)
-                                for (var A = Q.length; A;) this.addEventListener(Q[--A], k, t);
+                                for (var A = Q.length; A;) this.addEventListener(Q[--A], t);
                             else this.onmousewheel = k
                         },
                         teardown: function() {

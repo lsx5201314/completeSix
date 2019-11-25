@@ -29,7 +29,7 @@ public class AlipayDemoController {
 
     @RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
     @ResponseBody
-    public String goAlipay(HttpServletRequest request, HttpServletRequest response,String price) throws Exception {
+    public String goAlipay(HttpServletRequest request, HttpServletRequest response,String price,String orderId,Integer count) throws Exception {
 
 
         //获得初始化的AlipayClient
@@ -43,16 +43,17 @@ public class AlipayDemoController {
 
 
         //商户订单号，商户网站订单系统中唯一订单号，必填
-        String out_trade_no = UUID.randomUUID().toString();
+        String out_trade_no = orderId;
         //付款金额，必填
         String total_amount = price;
         //订单名称，必填
-        String subject = "2016101700705103";
+        String subject = "six pluse";
+
         //商品描述，可空
-        String body = "six pluse";
+        String body = "";
 
         // 该笔订单允许的最晚付款时间，逾期将关闭交易。取值范围：1m～15d。m-分钟，h-小时，d-天，1c-当天（1c-当天的情况下，无论交易何时创建，都在0点关闭）。 该参数数值不接受小数点， 如 1.5h，可转换为 90m。
-        String timeout_express = "1c";
+        String timeout_express = "15m";
 
         alipayRequest.setBizContent("{\"out_trade_no\":\""+ out_trade_no +"\","
                 + "\"total_amount\":\""+ total_amount +"\","
@@ -62,6 +63,7 @@ public class AlipayDemoController {
                 + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
 
         //请求
+        orderService.updOrderStatus(orderId,count);
         String result = alipayClient.pageExecute(alipayRequest).getBody();
         System.out.println("返回页面"+ result);
         return result;
@@ -73,8 +75,7 @@ public class AlipayDemoController {
 
         boolean verifyResult = rsaCheckV1(request);
         if(verifyResult){
-            String orderId="1197725628728684544";
-            orderService.updOrderStatus(orderId);
+
             //验证成功
             //请在这里加上商户的业务逻辑程序代码，如保存支付宝交易号
             //商户订单号

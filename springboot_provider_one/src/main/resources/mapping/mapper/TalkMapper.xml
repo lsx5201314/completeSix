@@ -3,6 +3,11 @@
   <mapper namespace="com.jk.talk.mapper.TalkMapper" >
 
     <select id="queryTalk" resultType="java.util.Map" parameterType="integer">
-        select * from t_talk t,cms_user u where talkproductid =#{id,jdbcType=INTEGER} and u.cmsUserId=1 GROUP BY u.cmsUserId
+        select * FROM t_talk t
+        LEFT JOIN cms_user cu on t.talkuserid=cu.cmsUserId
+        LEFT JOIN t_commodity cc on t.talkproductid=cc.productId
+        where t.talkproductid =#{id,jdbcType=INTEGER}
+
+        order by t.talktime desc
     </select>
   </mapper>
