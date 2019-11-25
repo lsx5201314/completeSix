@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+  <mapper namespace="com.jk.user.mapper.UserMapper" >
+
+    <select id="queryCmsUser" resultType="com.jk.user.model.CmsUser">
+        SELECT * FROM  cms_user
+        WHERE  cmsUserName=#{cmsUserName}
+    </select>
+
+    <insert id="addCmsUser" parameterType="com.jk.user.model.CmsUser">
+        insert into cms_user(cmsUserName,cmsUserPwd,cmsUserDate,cmsUserPhone) values
+        (#{cmsUserName},#{cmsUserPwd},#{cmsUserDate},#{cmsUserPhone})
+    </insert>
+
+    <select id="queryForgetPwd" resultType="com.jk.user.model.CmsUser">
+        select *  from cms_user where cmsUserName=#{cmsUserName}
+    </select>
+
+    <update id="updatePwd" parameterType="com.jk.user.model.CmsUser">
+        update cms_user set  cmsUserPwd=#{cmsUserPwd}  where  cmsUserId=#{cmsUserId}
+    </update>
+  </mapper>

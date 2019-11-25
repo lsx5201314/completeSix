@@ -73,13 +73,16 @@
     <!--cloud-zoom js -->
     <script type="text/javascript" src="../javascript/cloud-zoom.js"></script>
 
+    <!-- bootstrap 弹框 -->
+    <script src="../bootstrap-bootbox/bootbox.js"></script>
 
     <!-- nivo slider js -->
     <script type="text/javascript" src="../javascript/jquery.nivo.slider.js"></script>
 
     <!-- flexslider js -->
     <script type="text/javascript" src="../javascript/jquery.flexslider.js"></script>
-
+    <link href="../toastr.css" rel="stylesheet" />
+    <script src="../toastr.min.js"></script>
 
 </head>
 
@@ -129,7 +132,7 @@
                         <!-- End Search -->
                     </div>
                     <div class="col-lg-3 col-sm-4 col-xs-12 top-cart">
-                        <div class="link-wishlist"> <a href="#"> <span class="wishlist-count">3</span> <i class="fa fa-heart fa-lg"></i> </a> </div>
+                        <div class="link-wishlist"> <a href="#">  <i class="fa fa-heart fa-lg"></i> </a> </div>
                         <div class="top-cart-contain">
                             <div class="mini-cart">
                                 <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="#">
@@ -463,11 +466,11 @@
                 <div class="col-main col-sm-9 col-xs-12">
                     <div class="my-account">
                         <div class="page-title">
-                            <h2>我的收藏</h2>
+                            <h2 id="h2ID"></h2>
                         </div>
                         <div class="wishlist-item table-responsive">
                             <table class="col-md-12" id="collectTableId"></table>
-                            <button onclick='allAdd()' class="btn btn-success glyphicon">全部添加到购物车</button>
+                           <!-- <button onclick='allAdd()' class="btn btn-success glyphicon">全部添加到购物车</button>-->
                         </div>
                     </div>
                 </div>
@@ -479,9 +482,10 @@
                         <div class="block-content">
                             <ul>
                                 <li><a href="../toCart">我的购物车</a></li>
-                                <li><a href="#">我的订单</a></li>
+                                <li><a href="javascript:myOrder()">我的订单</a></li>
                                 <li><a href="#">我的评论</a></li>
                                 <li><a href="#">收货地址设置</a></li>
+                                <li><a href="javascript:collect()">我的收藏</a></li>
                             </ul>
                         </div>
                     </div>
@@ -559,6 +563,7 @@
         initTypeTwo();
     })
     function collect() {
+        $("#h2ID").html("我的收藏");
         var aa = "   <thead>\n" +
             "                                <tr>\n" +
             "                                    <th >删除</th>\n" +
@@ -597,7 +602,7 @@
             }
         })
     }
-    function allAdd() {
+   /* function allAdd() {
         var commodityIds = "";
         var ids = "";
         $("[name='alladd']").each(function () {
@@ -608,14 +613,129 @@
         })
         alert(commodityIds)
         alert(ids)
-    }
+    }*/
 
+    function myOrder() {
+        $("#h2ID").html("我的订单");
+        var pp = "   <thead>\n" +
+            "                                <tr>\n" +
+            "                                    <th >订单id</th>\n" +
+            "                                    <th >订单状态</th>\n" +
+            "                                    <th >用户名</th>\n" +
+            "                                    <th >联系电话</th>\n" +
+            "                                    <th >收货地址</th>\n" +
+            "                                    <th >收货人</th>\n" +
+            "                                    <th >订单详细</th>\n" +
+            "                                </tr>\n" +
+            "                                </thead>";
+        $.ajax({
+            url:"../collect/myOrder",
+            success:function (data) {
+                for(var i=0;i<data.length;i++){
+                    var status = "";
+                    var detailed = "";
+                    if(data[i].status == 0){
+                        status = "未付款";
+                        detailed = "商品未付款请支付";
+                    }else if (data[i].status == 1){
+                        status = "待付款";
+                        detailed = "商品未付款请支付";
+                    }else if (data[i].status == 2){
+                        status = "已付款";
+                        detailed= "<input onclick='adddetailed("+data[i].orderid+")' size='3' class=\"btn btn-success \" value='详细'>";
+                    }
+                    pp += "<tbody>" +
+                        "<tr>" +
+                        "<th>"+data[i].orderid+"</th>" +
+                        "<th>"+status+"</th>" +
+                        "<th>"+data[i].username+"</th>" +
+                        "<th>"+data[i].recphone+"</th>" +
+                        "<th>"+data[i].recarea+"</th>" +
+                        "<th>"+data[i].receiver+"</th>" +
+                        "<th>"+detailed+"</th>" +
+                        "</tr>" +
+                        "</tbody>";
+                    $("#collectTableId").html(pp);
+                }
+            }
+        })
+
+    }
+    function adddetailed(id) {
+        $("#h2ID").html("<a href='javascript:myOrder()'>返回我的订单</a>");
+        var ii = "   <thead>\n" +
+            "                                <tr>\n" +
+            "                                    <th >商品名称</th>\n" +
+            "                                    <th >商品价格</th>\n" +
+            "                                    <th >入网型号</th>\n" +
+            "                                    <th >商品简介</th>\n" +
+            "                                    <th >商品品牌</th>\n" +
+            "                                    <th >评论</th>\n" +
+            "                                </tr>\n" +
+            "                                </thead>";
+        $.ajax({
+            url:"../collect/detailed?id="+id,
+            success:function (data) {
+                for(var i=0;i<data.length;i++){
+                    ii+="<tbody>" +
+                        "<tr>" +
+                        "<th>"+data[i].productName+"</th>" +
+                        "<th>"+data[i].commodityPrice+"</th>" +
+                        "<th>"+data[i].theNetModel+"</th>" +
+                        "<th>"+data[i].productIntroduction+"</th>" +
+                        "<th>"+data[i].productBrandname+"</th>" +
+                        "<th><input onclick='addTalk("+data[i].productId+")' size='3' class=\"btn btn-success \" value='评论'></th>" +
+                        "</tr>" +
+                        "</tbody>";
+                }
+                $("#collectTableId").html(ii);
+            }
+        })
+
+    }
+    
+    function addTalk(id) {
+        $.ajax({
+            url:"../collect/addTalk?id="+id,
+            success:function (data) {
+                if(data==1){
+                    $("#h2ID").html("<a href='javascript:myOrder()'>返回我的订单</a>");
+                    var ii = "<form class=\"form-horizontal\" id=\"saveTalkForm\">\n" +
+                        "    <div class=\"form-group\">\n" +
+                    "        <label for=\"talkinfo\" class=\"col-sm-2 control-label\">评论:</label>\n" +
+                    "        <div class=\"col-sm-8\">\n" +
+                    "            <input type=\"text\" name=\"talkinfo\" id=\"talkinfo\" class=\"form-control\" placeholder=\"评论\" />\n" +
+                    "        </div>\n" +
+                    "       </div>\n" +
+                        "<div class=\"form-group\">\n" +
+                        "        <div class=\"col-sm-10\">\n" +
+                        "            <input type=\"button\" onclick='addTalk2("+id+")' class=' btn btn-success'  value='新增'/>\n" +
+                        "        </div>\n" +
+                        "    </div>" +
+                        "</form>";
+                    $("#collectTableId").html(ii);
+                }else{
+                    toastr.success('商品以评论');
+                }
+            }
+        })
+    }
+    function addTalk2(id) {
+        $.ajax({
+            url: "../collect/addTalk2",
+            type: "post",
+            data: {id:id,talkinfo:$('#talkinfo').val()},
+            success: function(data){
+                location.href="../collect/tocollect";
+            }
+        })
+    }
     <!--主搜索下拉响应时间-->
     function selecFacon(id){
         location.href="../tosolr/tosolrshow?flag="+id;
     }
 
-
+    toastr.options.positionClass = 'toast-bottom-right';
     <!--注销-->
     function Longout(){
         location.href="../comd/loginOut";

@@ -1,7 +1,10 @@
 package com.jk.order.model;
 
-public class TOrder {
+import java.io.Serializable;
 
+public class TOrder implements Serializable {
+
+  private static final long serialVersionUID = -2426513739158628490L;
   private String orderid;
   private String payment;
   private String paytype;

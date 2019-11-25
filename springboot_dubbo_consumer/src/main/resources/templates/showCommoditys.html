@@ -51,7 +51,7 @@
 
     <!-- style CSS -->
     <link rel="stylesheet" type="text/css" href="../views/css/style.css" media="all">
-</head>
+
 
 </head>
 
@@ -401,6 +401,8 @@
                         <!-- flexslider js -->
                         <script type="text/javascript" src="../views/js/jquery.flexslider.js"></script>
 
+                        <link href="../toastr.css" rel="stylesheet" />
+                        <script src="../toastr.min.js"></script>
                         <span id="goodsIds"  th:text="${commodity.productId}" th:hidden="true"></span>
                         <span id="priceIds"  th:text="${commodity.commodityPrice}" th:hidden="true"></span>
                         <script>
@@ -539,10 +541,15 @@
                                 $.ajax({
                                     url:"../collect/addCollect?commodityId="+$('#goodsIds').text(),
                                     success:function (data) {
-                                        alert("已加入我的关注")
+                                        if(data==1){
+                                            toastr.success('已关注');
+                                        }else{
+                                            toastr.error('以取消关注');
+                                        }
                                     }
                                 })
                             }
+                            toastr.options.positionClass = 'toast-bottom-right';
                         </script>
 
 

@@ -3,6 +3,9 @@ package com.jk.collect;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.jk.collect.model.Collect;
 import com.jk.collect.service.CollectService;
+import com.jk.goods.model.Commodity;
+import com.jk.order.model.TOrder;
+import com.jk.talk.model.Talk;
 import com.jk.user.model.CmsUser;
 import com.jk.user.model.User;
 import org.springframework.stereotype.Controller;
@@ -41,16 +44,57 @@ public class CollectController {
         collectService.deleteCollect(id);
     }
 
+    @RequestMapping("myOrder")
+    @ResponseBody
+    public List<TOrder> myOrder(HttpServletRequest request){
+        String id = request.getSession().getId();
+        CmsUser user = (CmsUser) request.getSession().getAttribute(id);
+        return collectService.myOrder(user.getCmsUserId());
+    }
+
+    @RequestMapping("detailed")
+    @ResponseBody
+    public List<Commodity> detailed(Integer id){
+
+        return collectService.detailed(id);
+    }
 
     @RequestMapping("addCollect")
     @ResponseBody
-    public void addCollect(Integer commodityId,HttpServletRequest request){
+    public int addCollect(Integer commodityId,HttpServletRequest request){
         String id = request.getSession().getId();
         CmsUser user = (CmsUser) request.getSession().getAttribute(id);
-        collectService.addCollect(commodityId,user.getCmsUserId());
+        Collect c = collectService.queryCollectByCommodityId(commodityId);
+        if(c==null){
+            collectService.addCollect(commodityId,user.getCmsUserId());
+            return 1;
+        }
+        collectService.deleteCollectAll(commodityId,user.getCmsUserId());
+        return 2;
+
     }
 
-        @RequestMapping("tocollect")
+    @RequestMapping("addTalk")
+    @ResponseBody
+    public int addTalk(Integer id,HttpServletRequest request){
+        String sessionId = request.getSession().getId();
+        CmsUser user = (CmsUser) request.getSession().getAttribute(sessionId);
+        Talk talk = collectService.addTalk(id, user.getCmsUserId());
+        if(talk == null){
+            return 1;
+        }
+        return 2;
+    }
+
+    @RequestMapping("addTalk2")
+    @ResponseBody
+    public void addTalk2(Integer id,String talkinfo,HttpServletRequest request){
+        String sessionId = request.getSession().getId();
+        CmsUser user = (CmsUser) request.getSession().getAttribute(sessionId);
+        collectService.addTalk2(user.getCmsUserId(),id,talkinfo);
+    }
+
+    @RequestMapping("tocollect")
     public String tocollect(){
         return "collect/collect";
     }
