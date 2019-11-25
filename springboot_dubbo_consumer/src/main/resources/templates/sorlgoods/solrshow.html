@@ -125,14 +125,14 @@
               <div id="search">
                 <form>
                   <div class="input-group">
-                    <select class="cate-dropdown hidden-xs hidden-sm" name="category_id" onchange="selecFacon(this.value)">
+                    <select class="cate-dropdown hidden-xs hidden-sm" name="category_id" onchange="selectsetBigType(this.value)">
                       <!--主搜有下拉-->
                       <option value="">所有分类</option>
                       <option value="1">手机</option>
                       <option value="2">电脑</option>
                       <option value="3">电视</option>
                     </select>
-                    <input type="text" class="form-control" placeholder="Search" th:value="${flag}" name="search">
+                    <input type="text" class="form-control" placeholder="Search" th:value="${qp.flag}" name="search">
                     <button class="btn-search" type="button" onclick="queryByflag()"><i class="fa fa-search"></i></button>
                   </div>
                 </form>
@@ -192,21 +192,21 @@
           <div class="main-menu">
             <nav>
               <ul>
-                <li ><a href="javascript:queryType(1)">手机</a>
+                <li ><a href="javascript:setBigType(1,'手机')">手机</a>
                   <ul class="dropdown">
 
                     <span id="phoneIdd"></span>
 
                   </ul>
                 </li>
-                <li ><a href="javascript:queryType(2)">电脑</a>
+                <li ><a href="javascript:setBigType(2,'电脑')">电脑</a>
                   <ul class="dropdown">
 
                     <span id="compIdd"></span>
 
                   </ul>
                 </li>
-                <li ><a href="javascript:queryType(3)">电视</a>
+                <li ><a href="javascript:setBigType(3,'电视')">电视</a>
                   <ul class="dropdown">
 
                     <span id="tevleIdd"></span>
@@ -478,7 +478,7 @@
         <div class="col-main col-sm-12 col-xs-12">
           <div class="shop-inner">
             <div class="page-title">
-              <h2> 手机 & 电脑</h2>
+              <h2><span th:text="${qp.bigTypeName}"></span> <span th:text="${qp.smalltypename}"></span></h2>
             </div>
             <div class="toolbar column">
               <div class="sorter">
@@ -629,7 +629,12 @@
       </div>
     </div>
   </div>
-
+  <!--小类-->
+  <input id="smalltypeid" th:value="${qp.smallTypeid}" type="text">
+  <input id="smalltypename"  type="hidden">
+  <!--大类-->
+  <input type="text" th:value="${qp.bigTypeId}" id="bigtypeid">
+  <input type="hidden" id="bigtypename">
 
 <script>
   var vm=new Vue({
@@ -649,6 +654,8 @@
       var flag = $("[name='search']").val()
       var pageCount = $("#pageCountId").val()
       var orderType = $("#descId").val()
+      var bigTypeId= $("#bigtypeid").val()
+      var smallTypeid= $("#smalltypeid").val()
       var pageNow=1
       if(start!=undefined){
         pageNow=start
@@ -656,7 +663,7 @@
       $.ajax({
         url:"../goodssolr/queryGoods",
         type:"post",
-        data:{'pageNow':pageNow,'pageCount':pageCount,'flag':flag,'order':order,'orderType':orderType},
+        data:{'pageNow':pageNow,'pageCount':pageCount,'flag':flag,'order':order,'orderType':orderType,'brandId':smallTypeid,'typeId':bigTypeId},
         dataType:"json",
         success:function (data) {
               setPage(data.pageNow,data.pageSize)
@@ -748,7 +755,7 @@
           var arr1=data[i].productBrand_name.split(",");
           var arrlength=arr.length;
           for(var j=0;j<arrlength;j++){
-            phoneInfo+='<li><a href="javascript:queryType('+arr[j]+')">'+arr1[j]+'</a></li>'
+            phoneInfo+='<li><a href="javascript:setSmallType('+arr[j]+',\''+arr1[j]+'\')">'+arr1[j]+'</a></li>'
           }
           if(count==1){
             $("#phoneIdd").html(phoneInfo)
@@ -763,11 +770,40 @@
       }
     })
   }
-
+  /*大类*/
+  function setBigType(id,name) {
+    $("#bigtypeid").val(id)
+    $("#bigtypename").val(name)
+    queryType()
+  }
+  /**/
+  function selectsetBigType(id) {
+    if(id==1){
+      setBigType(1,'手机')
+    }else if(id==2){
+      setBigType(2,'电脑')
+    }else {
+      setBigType(3,'电视')
+    }
+  }
+  /*小类*/
+  function setSmallType(id,name) {
+    $("#smalltypeid").val(id)
+    $("#smalltypename").val(name)
+    queryType()
+  }
 
   <!--标签框-->
   function queryType(id){
-    location.href="../tosolr/tosolrshow?flag="+id;
+    if (id="undefined"){
+      id="";
+    }
+    var bigTypeId= $("#bigtypeid").val()
+    var bigTypeName= $("#bigtypename").val()
+    var smallTypeid= $("#smalltypeid").val()
+    var smalltypename= $("#smalltypename").val()
+    location.href="../tosolr/tosolrshow?flag="+id+"&bigTypeId="+bigTypeId+"&bigTypeName="+bigTypeName+
+            "&smallTypeid="+smallTypeid+"&smalltypename="+smalltypename;
   }
 
 

@@ -11,6 +11,7 @@
         <option value="$PROJECT_DIR$/springboot_dubbo_provider/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_dubbo_api/pom.xml" />
         <option value="$PROJECT_DIR$/springboot_dubbo_consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot_provider_one/pom.xml" />
       </list>
     </option>
   </component>

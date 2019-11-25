@@ -8,9 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="sixpulse" />
         <module name="springboot_dubbo_api" />
+        <module name="cms-one" />
         <module name="groupone" />
         <module name="springboot_dubbo_consumer" />
         <module name="Six-pulse" />
+        <module name="springboot_provider_one" />
         <module name="springboot_dubbo_provider" />
       </profile>
     </annotationProcessing>
@@ -20,6 +22,7 @@
       <module name="springboot_dubbo_api" options="-parameters" />
       <module name="springboot_dubbo_consumer" options="-parameters" />
       <module name="springboot_dubbo_provider" options="-parameters" />
+      <module name="springboot_provider_one" options="-parameters" />
     </option>
   </component>
 </project>

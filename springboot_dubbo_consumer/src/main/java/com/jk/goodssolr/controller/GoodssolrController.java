@@ -46,10 +46,10 @@ public class GoodssolrController {
                 params.set("q","*:*");
             }
             //过滤条件
-            if (goods.getBrandId()!=null && goods.getTypeId()!=0){
+            if (goods.getBrandId()!=null && !"".equals(goods.getBrandId())){
                 params.set("fq","brandId:"+goods.getBrandId());
             }
-            if (goods.getTypeId()!=null && goods.getTypeId()!=0){
+            if (goods.getTypeId()!=null && !"".equals(goods.getTypeId())){
                 params.set("fq","typeId:"+goods.getTypeId());
             }
             // 设置查询的排序参数，1-排序的字段名，2-排序方式（ORDER：asc desc）

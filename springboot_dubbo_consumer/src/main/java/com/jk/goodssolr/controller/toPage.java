@@ -1,5 +1,6 @@
 package com.jk.goodssolr.controller;
 
+import com.jk.utils.QueryParam;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +20,14 @@ public class toPage {
         return "sorlgoods/solrbutton";
     }
     @RequestMapping("tosolrshow")
-    public String tosolrshow(String flag, Model model){
-        model.addAttribute("flag",flag);
+    public String tosolrshow(String flag, Model model,Integer bigTypeId,String bigTypeName,Integer smallTypeid,String smalltypename){
+        QueryParam queryParam = new QueryParam();
+        queryParam.setFlag(flag);
+        queryParam.setBigTypeId(bigTypeId);
+        queryParam.setBigTypeName(bigTypeName);
+        queryParam.setSmallTypeid(smallTypeid);
+        queryParam.setSmalltypename(smalltypename);
+        model.addAttribute("qp",queryParam);
         return "sorlgoods/solrshow";
     }
 }
