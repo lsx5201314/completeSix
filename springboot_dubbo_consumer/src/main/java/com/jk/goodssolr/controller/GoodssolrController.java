@@ -86,7 +86,7 @@ public class GoodssolrController {
 
             PageModel pageModel = new PageModel((int) numFound, page.getPageNow(), page.getPageCount());
 
-            System.out.println(numFound);
+
             //获取高亮显示的结果, 高亮显示的结果和查询结果是分开放的
             Map<String, Map<String, List<String>>> highlight = queryResponse.getHighlighting();
             List<SolrGoods> list1 =new ArrayList<SolrGoods>();
@@ -95,7 +95,6 @@ public class GoodssolrController {
                 String highFile="";
                 Map<String, List<String>> map = highlight.get(result.get("id"));
                 List<String> list = map.get("name");
-                System.out.println(list);
                 if (list==null){
                     highFile = (String)result.get("name");
                 }else {
