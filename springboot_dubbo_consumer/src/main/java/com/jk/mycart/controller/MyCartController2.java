@@ -64,29 +64,34 @@ public class MyCartController2 {
     public Integer queryMyCartAllPrice(){
         HttpSession session = request.getSession();
         CmsUser user= (CmsUser) session.getAttribute(session.getId());
-        System.out.println("当前登录人："+user.getCmsUserName());
-        String redisMyCartKey= CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
-        return myCartService2.queryMyCartAllPrice(redisMyCartKey);
+        if(user!=null){
+            System.out.println("当前登录人："+user.getCmsUserName());
+            String redisMyCartKey= CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
+            return myCartService2.queryMyCartAllPrice(redisMyCartKey);
+        }
+      return null;
+
     }
     @RequestMapping("/queryMyCartInfo")
     @ResponseBody
     public List<Commodity> findCartList(){
         HttpSession session = request.getSession();
         CmsUser user= (CmsUser) session.getAttribute(session.getId());
-        System.out.println("当前登录人："+user.getCmsUserName());
-        String redisMyCartKey= CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
         String loclCartCookiesKey=CommonConf.LOCALCART_CACHE_KEY;
-        String cartListString = CookieUtil.getCookieValue(request, "redisMyCartKey", "UTF-8");
+        String cartListString = CookieUtil.getCookieValue(request, loclCartCookiesKey, "UTF-8");
         if(cartListString==null || cartListString.equals("")){
             cartListString="[]";
         }
         List<Commodity> cartList_cookie = JSON.parseArray(cartListString, Commodity.class);
 
-        if(user==null && "".equals(user.getCmsUserName())){//如果未登录
+        if(user==null || "".equals(user.getCmsUserName())){//如果未登录
             //从cookie中提取购物车
             System.out.println("从cookie中提取购物车");
             return cartList_cookie;
-        }else{//如果已登录
+        }else{
+            //如果已登录
+            System.out.println("当前登录人："+user.getCmsUserName());
+            String redisMyCartKey= CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
             //获取redis购物车
             List<Commodity> cartList_redis = myCartService2.findCartListFromRedis(redisMyCartKey);
             if(cartList_cookie!=null && cartList_cookie.size()>0){//判断当本地购物车中存在数据
@@ -109,23 +114,21 @@ public class MyCartController2 {
     public Result addGoodsToCartList( Long itemId, Integer num){
         HttpSession session = request.getSession();
         CmsUser user= (CmsUser) session.getAttribute(session.getId());
-        //当前登录人账号
-        String redisMyCartKey=CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
         String loclCartCookiesKey=CommonConf.LOCALCART_CACHE_KEY;
-        System.out.println("当前登录人："+user.getCmsUserName());
         try {
             //提取购物车
             List<Commodity> cartList = findCartList();
             //调用服务方法操作购物车
             cartList = myCartService2.addGoodsToCartList(cartList, itemId, num);
 
-            if(user.getCmsUserName().equals("")){//如果未登录
+            if(null==user ||"".equals(user.getCmsUserName())){//如果未登录
                 //将新的购物车存入cookie
                 String cartListString = JSON.toJSONString(cartList);
                 CookieUtil.setCookie(request, response, loclCartCookiesKey, cartListString, 3600*24, "UTF-8");
                 System.out.println("向cookie存储购物车");
-
             }else{//如果登录
+                System.out.println("当前登录人："+user.getCmsUserName());
+                String redisMyCartKey=CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
                 myCartService2.saveCartListToRedis(redisMyCartKey, cartList);
             }
             return new Result(true, "存入购物车成功");

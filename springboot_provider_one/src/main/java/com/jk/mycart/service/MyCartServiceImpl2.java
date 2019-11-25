@@ -29,7 +29,7 @@ public class MyCartServiceImpl2 implements MyCartService2 {
     public List<Commodity> mergeCartList( List<Commodity> cartList_cookie, List<Commodity> cartList_redis ) {
         //合并购物车
         for(Commodity cart:cartList_cookie){
-            cartList_cookie.add(cart);
+            cartList_redis.add(cart);
         }
         return cartList_redis;
     }
