@@ -25,13 +25,31 @@ import java.util.List;
 public class MyCartController2 {
     @Resource
     private RedisTemplate redisTemplate;
-    @Reference
+    @Reference(version = "1.0")
     private MyCartService2 myCartService2;
     @Autowired
     private HttpServletRequest request;
     @Resource
     private HttpServletResponse response;
+    @RequestMapping("findMyCartCount")
+    @ResponseBody
+    public String  findMyCartCount(){
+        HttpSession session = request.getSession();
+        CmsUser user= (CmsUser) session.getAttribute(session.getId());
+        System.out.println("当前登录人："+user.getCmsUserName());
+        String redisMyCartKey= CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
 
+        return  myCartService2.findMyCartCount(redisMyCartKey);
+    }
+    @RequestMapping("changeMyCart")
+    @ResponseBody
+    public void changeMyCart( List<Commodity> mycartInfoList){
+        HttpSession session = request.getSession();
+        CmsUser user= (CmsUser) session.getAttribute(session.getId());
+        System.out.println("当前登录人："+user.getCmsUserName());
+        String redisMyCartKey= CommonConf.LOGIN_CACHE_KEY+user.getCmsUserName();
+        myCartService2.changeMyCart(mycartInfoList,redisMyCartKey);
+    }
     @RequestMapping("removeMyCartByGoodsId")
     @ResponseBody
     public void removeMyCartByGoodsId(String id){
@@ -71,7 +89,7 @@ public class MyCartController2 {
         }else{//如果已登录
             //获取redis购物车
             List<Commodity> cartList_redis = myCartService2.findCartListFromRedis(redisMyCartKey);
-            if(cartList_cookie.size()>0){//判断当本地购物车中存在数据
+            if(cartList_cookie!=null && cartList_cookie.size()>0){//判断当本地购物车中存在数据
                 //得到合并后的购物车
                 List<Commodity> cartList = myCartService2.mergeCartList(cartList_cookie, cartList_redis);
                 //将合并后的购物车存入redis

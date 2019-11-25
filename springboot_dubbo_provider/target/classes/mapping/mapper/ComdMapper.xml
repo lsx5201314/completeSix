@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.comd.mapper.ComdMapper" >
+
+    <select id="queryComdAll" resultType="java.util.Map">
+        SELECT
+            *
+        FROM
+            t_commodity tc,
+            t_productcolor tpr,
+            t_commodity_color tcc,
+            t_productbrand tpb,
+            t_type tty
+        WHERE
+            tc.productState = 1
+        AND tty.type_id = 1
+        AND tpb.productBrand_id = tc.productBrand
+        AND tty.type_id = tpb.productBrand_typeId
+        AND tc.productId = tcc.commodityid
+        AND tpr.productColor_id = tcc.productColorid
+        GROUP BY
+            tc.productId
+        ORDER BY
+            commoditySales DESC
+    </select>
+
+    <select id="queryComp" resultType="java.util.Map">
+         SELECT
+                *
+            FROM
+                t_commodity tc,
+                t_productcolor tpr,
+                t_commodity_color tcc,
+                t_productbrand tpb,
+                t_type tty
+            WHERE
+                tc.productState = 1
+            AND tpb.productBrand_id = tc.productBrand
+            AND tty.type_id = tpb.productBrand_typeId
+            AND tc.productId = tcc.commodityid
+            AND tpr.productColor_id = tcc.productColorid
+            AND tty.type_id = 2
+            GROUP BY
+                tc.productId
+            ORDER BY
+                commoditySales DESC
+            LIMIT 0,2
+    </select>
+
+    <select id="queryTelv" resultType="java.util.Map">
+        SELECT
+            *
+        FROM
+            t_commodity tc,
+            t_productcolor tpr,
+            t_commodity_color tcc,
+            t_productbrand tpb,
+            t_type tty
+        WHERE
+         tc.productState = 1
+        AND tpb.productBrand_id = tc.productBrand
+        AND tty.type_id = tpb.productBrand_typeId
+        AND tc.productId = tcc.commodityid
+        AND tpr.productColor_id = tcc.productColorid
+        AND tty.type_id = 3
+        GROUP BY
+            tc.productId
+        ORDER BY
+            commoditySales DESC
+    </select>
+
+    <select id="queryBestSelling" resultType="java.util.Map">
+        SELECT
+            *
+        FROM
+            t_commodity tc,
+            t_productcolor tpr,
+            t_commodity_color tcc,
+            t_comment tco
+        WHERE
+            tc.whetherTheHot = 1
+        AND tc.productState = 1
+        AND tco.productId=tc.productId
+        AND tc.productId = tcc.commodityid
+        AND tpr.productColor_id = tcc.productColorid
+        GROUP BY
+            tc.productId
+        ORDER BY
+            goodCom DESC
+    </select>
+
+    <select id="queryReTui" resultType="java.util.Map">
+           SELECT
+                *
+            FROM
+                t_commodity tc,
+                t_productcolor tpr,
+                t_commodity_color tcc
+
+            WHERE
+               tc.productState = 1
+
+            AND tc.productId = tcc.commodityid
+            AND tpr.productColor_id = tcc.productColorid
+            GROUP BY
+                tc.productId
+            ORDER BY
+                tc.timeToMarket  DESC
+            LIMIT 0,5
+    </select>
+
+    <select id="queryWeek" resultType="java.util.Map">
+      SELECT
+            *
+        FROM
+            t_commodity tc,
+            t_productcolor tpr,
+            t_commodity_color tcc
+        WHERE
+            tc.productState = 1
+        AND tc.productId = tcc.commodityid
+        AND tpr.productColor_id = tcc.productColorid
+        AND YEARWEEK(
+            date_format(tc.timeToMarket, '%Y-%m-%d')
+        ) = YEARWEEK(now())
+        GROUP BY
+            tc.productId
+        LIMIT 0,8
+    </select>
+
+    <select id="queryGoodComm" resultType="java.util.Map">
+      SELECT
+            *
+        FROM
+            t_commodity tc,
+            t_productcolor tpr,
+            t_commodity_color tcc,
+            t_comment tco
+        WHERE
+            tc.productState = 1
+        AND tc.productId = tcc.commodityid
+        AND tco.productId=tc.productId
+        AND tpr.productColor_id = tcc.productColorid
+        GROUP BY
+            tc.productId
+        ORDER BY
+            tco.goodCom DESC
+        LIMIT 0,3
+    </select>
+
+    <select id="queryHottesGoods" resultType="java.util.Map">
+        SELECT
+            *
+        FROM
+            t_commodity tc,
+            t_productcolor tpr,
+            t_commodity_color tcc
+        WHERE
+            tc.productState = 1
+        AND tc.whetherTheHot=1
+        AND tc.productId = tcc.commodityid
+        AND tpr.productColor_id = tcc.productColorid
+        GROUP BY tc.productId
+        ORDER BY tc.timeToMarket DESC
+        LIMIT 0, 2
+    </select>
+
+    <select id="queryAdv" resultType="com.jk.comd.model.Adv">
+        select
+            *
+        from t_adv
+        where advstatus=1
+        AND advyn=0
+        LIMIT 0,5
+    </select>
+
+    <select id="queryType" resultType="java.util.Map">
+        select productBrand_id,productBrand_name from t_productbrand
+    </select>
+
+    <select id="queryTypeTwo" resultType="java.util.Map">
+        SELECT
+            GROUP_CONCAT(productBrand_name) as productBrand_name,
+             GROUP_CONCAT(CAST(productBrand_Id AS CHAR)) as productBrand_Id
+        FROM
+            t_productbrand
+        GROUP BY
+            productBrand_TypeId
+    </select>
+
+    <select id="queryLb" resultType="java.util.Map">
+        select advimg from t_adv
+        Where advstatus=1
+        AND advyn=1
+        LIMIT 0,1
+    </select>
+</mapper>

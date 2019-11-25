@@ -4,9 +4,6 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.jk.user.model.CmsUser;
 import com.jk.user.service.UserService;
-import com.jk.user.util.HttpClientUtil;
-import io.lettuce.core.dynamic.domain.Timeout;
-import org.omg.CORBA.TIMEOUT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
@@ -27,7 +24,7 @@ import static com.jk.user.constant.Constant.KEY;
 @RequestMapping("user")
 public class UserController {
 
-    @Reference(version = "1.1")
+   @Reference(version = "1.0")
     private UserService userService;
 
     @Autowired

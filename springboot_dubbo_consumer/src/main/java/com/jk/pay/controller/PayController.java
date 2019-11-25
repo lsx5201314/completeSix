@@ -7,6 +7,6 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class PayController {
-    @Reference
+    @Reference( version = "1.0")
     private PayService payService;
 }

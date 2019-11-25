@@ -1,5 +1,6 @@
 package com.jk.mycart.service;
 
+
 import com.alibaba.dubbo.config.annotation.Service;
 import com.jk.comd.model.Commodity;
 import com.jk.mycart.mapper.MyCartMapper2;
@@ -7,10 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-@Service
+@Service( version = "1.0")
 public class MyCartServiceImpl2 implements MyCartService2 {
     @Autowired
     private MyCartMapper2 myCartMapper2;
@@ -18,7 +18,6 @@ public class MyCartServiceImpl2 implements MyCartService2 {
     private RedisTemplate redisTemplate;
     @Override
     public List<Commodity> findCartListFromRedis( String redisMyCartKey ) {
-        /*  List<Cart> cartList = (List<Cart>) redisTemplate.boundHashOps("cartList").get(username);*/
         List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,-1);
         if(cartList==null){
             cartList=new ArrayList();
@@ -56,7 +55,7 @@ public class MyCartServiceImpl2 implements MyCartService2 {
 
     @Override
     public Integer queryMyCartAllPrice( String redisMyCartKey ) {
-        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,-1);
+        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,redisTemplate.opsForList().size(redisMyCartKey));
         Integer myCartAllPrice=0;
         for (Commodity cart:cartList) {
             myCartAllPrice+=cart.getProductNum()*(int)cart.getCommodityPrice();
@@ -66,12 +65,7 @@ public class MyCartServiceImpl2 implements MyCartService2 {
 
     @Override
     public void removeMyCartByGoodsId( String id, String redisMyCartKey ) {
-        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,-1);
-      /*  for (Commodity cart:cartList) {
-            if((cart.getProductId()+"").equals(id)){
-                cartList.remove(cart);
-            }
-        }*/
+        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,redisTemplate.opsForList().size(redisMyCartKey));
         for (int i = 0; i < cartList.size(); i++) {
            if((cartList.get(i).getProductId()+"").equals(id)){
                cartList.remove(cartList.get(i));
@@ -86,6 +80,26 @@ public class MyCartServiceImpl2 implements MyCartService2 {
         }
 
 
+    }
+
+    @Override
+    public void changeMyCart( List<Commodity> mycartInfoList, String redisMyCartKey ) {
+        redisTemplate.delete(redisMyCartKey);
+        for (Commodity cart:mycartInfoList) {
+            redisTemplate.opsForList().leftPush(redisMyCartKey,cart);
+        }
+    }
+
+    @Override
+    public String findMyCartCount( String redisMyCartKey ) {
+        List<Commodity> cartList =redisTemplate.opsForList().range(redisMyCartKey,0,-1);
+        StringBuffer stringBuffer = new StringBuffer();
+        if(cartList.size()>0){
+            for (Commodity cart:cartList) {
+                stringBuffer.append(cart.getProductNum());
+            }
+        }
+        return stringBuffer.toString();
     }
 
 
