@@ -87,34 +87,4 @@
 
         GROUP BY tcd.productId
     </select>
-    <!--<insert id="addOrders" parameterType="com.jk.model.TbOrder">
-        INSERT INTO tb_order (
-        order_id,
-        payment,
-        payment_type,
-        STATUS,
-        create_time,
-        update_time,
-        user_id,
-        receiver_area_name,
-        receiver_mobile,
-        receiver,
-        source_type
-        )
-        VALUES
-        (
-        #{orderId},
-        #{payment},
-        #{paymentType},
-        #{status},
-        sysdate(),
-        sysdate(),
-        #{userId},
-        #{receiverAreaName},
-        #{receiverMobile},
-        #{receiver},
-        #{sourceType}
-        )
-    </insert>-->
-
   </mapper>

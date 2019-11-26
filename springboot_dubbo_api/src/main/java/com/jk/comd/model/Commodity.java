@@ -13,6 +13,7 @@ import java.util.Date;
  * @Version V1.0
  **/
 public class Commodity implements Serializable {
+
     private static final long serialVersionUID = 3710566741481066951L;
 
     private Integer productId;
@@ -57,10 +58,8 @@ public class Commodity implements Serializable {
 
     private String aspectRatio;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date upAndDownTime;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date timeToMarket;
 
     private String theNetModel;
@@ -82,9 +81,15 @@ public class Commodity implements Serializable {
     private String productBrandname;
 
     private Integer productNum;
-
-
     private String AllPriceProduct;
+    private String imgProduct;
+    public String getImgProduct() {
+        return imgProduct;
+    }
+
+    public void setImgProduct( String imgProduct ) {
+        this.imgProduct = imgProduct;
+    }
 
     public String getAllPriceProduct() {
         return AllPriceProduct;

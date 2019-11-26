@@ -5,7 +5,7 @@ import com.jk.user.model.CmsUser;
 import com.jk.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Service(version = "1.1")
+@Service(version = "1.0")
 public class UserServiceImpl implements UserService {
 
     @Autowired

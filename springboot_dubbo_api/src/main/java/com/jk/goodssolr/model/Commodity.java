@@ -79,6 +79,15 @@ public class Commodity implements Serializable {
     private Integer productBrand;
 
     private String productBrandname;
+    private String imgProduct;
+
+    public String getImgProduct() {
+        return imgProduct;
+    }
+
+    public void setImgProduct( String imgProduct ) {
+        this.imgProduct = imgProduct;
+    }
 
     public Integer getProductId() {
         return productId;

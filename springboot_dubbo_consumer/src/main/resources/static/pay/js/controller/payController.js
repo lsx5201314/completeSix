@@ -4,7 +4,6 @@ app.controller('payController' ,function($scope ,$location,payService){
 	$scope.createNative=function(){
 		payService.createNative().success(
 			function(response){
-				
 				//显示订单号和金额
 				$scope.money= (response.total_fee/100).toFixed(2);
 				$scope.out_trade_no=response.out_trade_no;

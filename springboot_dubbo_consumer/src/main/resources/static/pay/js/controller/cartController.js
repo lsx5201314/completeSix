@@ -5,11 +5,17 @@ app.controller('cartController',function($scope,cartService){
 		cartService.findCartList().success(
 			function(response){
 				$scope.cartList=response;
-				$scope.totalValue= cartService.sum($scope.cartList);
 			}
+
+		);
+		cartService.sum().success(
+			function(response){
+				$scope.totalValue=response;
+			}
+
 		);
 	}
-	
+
 	//数量加减
 	$scope.addGoodsToCartList=function(itemId,num){
 		cartService.addGoodsToCartList(itemId,num).success(
@@ -64,26 +70,24 @@ app.controller('cartController',function($scope,cartService){
 	
 	//保存订单
 	$scope.submitOrder=function(){
-		$scope.order.receiverAreaName=$scope.address;//地址
-		$scope.order.receiverMobile=$scope.mobile;//手机
-		$scope.order.receiver=$scope.contact;//联系人
-		
+		$scope.order.receiverAreaName=$("[name='address']").val();//地址
+		$scope.order.receiverMobile=$("[name='Mobile']").val();//手机
+		$scope.order.receiver=$("[name='contact']").val();//联系人
+		cartService.findMyCartCount().success(
+			function(response){
+				$scope.cartCount=response;
+			}
+
+		);
 		cartService.submitOrder( $scope.order ).success(
 			function(response){
-				//alert(response.message);
-				if(response.success){
-					//页面跳转
-					if($scope.order.paymentType=='1'){//如果是微信支付，跳转到支付页面
-						location.href="../toPay";
-					}else{//如果货到付款，跳转到提示页面
-						location.href="../toPaysuccess";
-					}
-					
-				}else{
-					alert(response.message);	//也可以跳转到提示页面				
+				//页面跳转
+				if($scope.order.paymentType=='1'){//如果是微信支付，跳转到支付页面
+					location.href="../goAlipay?price="+$scope.totalValue+"orderId="+response+"count="+$scope.cartCount;
+				}else{//如果货到付款，跳转到提示页面
+					location.href="../toPaysuccess";
 				}
-				
-			}				
+			}
 		);		
 	}
 	

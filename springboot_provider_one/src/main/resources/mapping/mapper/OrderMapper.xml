@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
   <mapper namespace="com.jk.order.mapper.OrderMapper" >
-
+    <insert id="insertMyOrder" parameterType="com.jk.order.model.TOrder">
+        insert into t_order values(#{orderid},#{payment},#{paytype},#{status},#{createtime},#{userid},#{username},#{recarea},#{recphone},#{receiver})
+    </insert>
+    <insert id="insertMyOrderInfo" parameterType="com.jk.order.model.TOrder">
+        insert into t_orderinfo values(#{orderinfoid},#{orderinfooid},#{orderinfopid},#{orderinfocprice},#{number},#{allprice})
+    </insert>
       <update id="updOrderStatus" parameterType="string">
           update t_order t set t.status=2 where t.orderid=#{orderId,jdbcType=VARCHAR}
       </update>

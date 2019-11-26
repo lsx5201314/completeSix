@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.jk.mycart.mapper.MyCartMapper2" >
     <select id="selectByPrimaryKey" resultType="com.jk.comd.model.Commodity" parameterType="long">
-        select * from t_commodity where productId=#{itemId}
-    </select>
+    select
+    c.*,co.productColor_img as imgProduct
+    from t_commodity c,t_commodity_color tc,t_productcolor co
+    where tc.commodityid=c.productId
+    and co.productColor_id=tc.productColorid and
+    productId=#{itemId}
+</select>
 </mapper>
