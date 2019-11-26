@@ -734,7 +734,7 @@
 <!--vue-->
   <script>
     $(function(){
-      initType();
+      initTypeTwo();
     })
     function toIndex (){
       location.href="../tosolr/tosolrshow?flag="
@@ -913,19 +913,47 @@
     location.href="../tosolr/tosolrshow?flag="+flag
   }
 
-  <!--初始化加载类型-->
-  function initType(){
-      $.ajax({
-        url:"../comd/queryType",
-        type:"post",
-        success:function (data) {
-          var info="";
-          for(var i=0;i<data.length;i++){
-            info+='<li><a href="javascript:setSmallType('+data[i].productBrand_id+',\''+data[i].productBrand_name+'\')">'+data[i].productBrand_name+'</a></li>'
+  <!--查询红框类型-->
+  function initTypeTwo(){
+    $.ajax({
+      url:"../comd/queryTypeTwo",
+      type:"post",
+      dataType:"json",
+      success:function(data){
+        var count=0;
+        for(var i=0;i<data.length;i++){
+          var phoneInfo="";
+          count++;
+          var id="";
+          var text="";
+          var arr=data[i].productBrand_Id.split(",");
+          var arr1=data[i].productBrand_name.split(",");
+          var arrlength=arr.length;
+          for(var j=0;j<arrlength;j++){
+            phoneInfo+='<li><a href="javascript:queryType(\''+arr1[j]+'\')">'+arr1[j]+'</a></li>'
           }
-          $("#spanTypeId").html(info)
+          if(count==1){
+            $("#phoneIdd").html(phoneInfo)
+          }
+          if(count==2){
+            $("#compIdd").html(phoneInfo)
+          }
+          if(count==3){
+            $("#tevleIdd").html(phoneInfo)
+          }
         }
-      })
+      }
+    })
+  }
+
+
+  function queryTypeHead(){
+    var data = $("#headinputid").val();
+    queryType(data);
+  }
+  <!--标签框-->
+  function queryType(id){
+    location.href="../tosolr/tosolrshow?flag="+id;
   }
 </script>
 

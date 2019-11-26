@@ -237,14 +237,13 @@
 
 
 
-                                                  <center> <li class="comment even thread-even depth-1" id="li-comment-2">
+
                                                         <article id="comment" >
 
                                                         </article><!-- end of comment -->
 
 
-                                                    </li>
-                                                  </center>
+
 
 
 
@@ -351,20 +350,18 @@
                     var li="";
                     for (var i =0;i<data.length;i++){
 
-                        li+="  <img alt=\"\" src=\"http://gravatar.com/avatar/50a7625001317a58444a20ece817aeca\"\n" +
-                            "                                         class=\"avatar avatar-60 photo\" height=\"60\" width=\"60\">\n" +
-                            "                                                            <div class=\"comment-meta\">\n" +
+                        li+="                                                            <div class=\"comment-meta\">\n" +
                             "\n" +
                             "                                                                <h5 class=\"author\">\n" +
                             "                                                                    <cite class=\"fn\">\n" +
-                            "                                                                        <p id=\"userName\">"+data[i].cmsUserName+"</p>\n" +
+                            "                                                                        <p id=\"userName\">买家名称：<font color='#8a2be2'>"+data[i].cmsUserName+"</font></p>\n" +
                             "                                                                    </cite>\n" +
-                            "                                                                    - <span>"+data[i].talkinfo+"</span>\n" +
+                            "                                                                    <span>评论内容："+data[i].talkinfo+"</span>\n" +
                             "                                                                </h5>\n" +
                             "\n" +
                             "                                                                <p class=\"date\">\n" +
                             "                                                                    <a href=\"#\">\n" +
-                            "                                                                        <p>"+data[i].talktime+"</p>" +
+                            "                                                                        <p align='right'>评论日期："+data[i].talktime+"</p>" +
                             "                                                                    </a>\n" +
                             "                                                                </p>\n" +
                             "\n" +

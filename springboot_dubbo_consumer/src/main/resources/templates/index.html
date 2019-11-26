@@ -857,7 +857,10 @@
           $.ajax({
             url:"../comd/queryWeek",
             type:"post",
+            dataType:"text",
             success:function(data){
+              data=data.substring(1,data.length-1)
+              data=eval("("+data+")");
               var info="";
               var info2="";
               var count=0;
@@ -942,7 +945,10 @@
           $.ajax({
             url:"../comd/queryComp",
             type:"post",
+            dataType:"text",
             success:function(data) {
+              data=data.substring(1,data.length-1);
+              data=eval("("+data+")")
               var count = 0;
               $("#lpImgId1").attr('src',data[data.length-1].productColor_img)
               for (var i = 0; i < data.length; i++) {
@@ -986,7 +992,11 @@
       function initReTui(){
           $.ajax({
               url:"../comd/queryReTui",
+              type:"post",
+              dataType:"text",
               success:function(data){
+                data=data.substring(1,data.length-1);
+                data=eval("("+data+")");
                 var count=0;
                 for(var i=0;i<data.length;i++){
                   count++;
@@ -1146,7 +1156,11 @@
       function initTelev(){
         $.ajax({
           url:"../comd/queryTelv",
+          type:"post",
+          dataType:"text",
           success:function(data){
+            data=data.substring(1,data.length-1)
+            data=eval("("+data+")")
             var count=0;
             var info="";
             var info1="";
@@ -1487,7 +1501,10 @@
       $.ajax({
         url:"../comd/queryLb",
         type:"post",
+        dataType:"text",
         success:function(data){
+                data=data.substring(1,data.length-1)
+                data=eval("("+data+")");
                 $("#lpImgId3").attr('src',data[0].advimg)
         }
       })

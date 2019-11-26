@@ -8,8 +8,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-import static com.jk.utils.Commfig.PHONEKEY;
+import static com.jk.utils.Commfig.*;
 
 
 /**
@@ -43,12 +44,30 @@ public class ComdServiceImpl implements ComdService{
 
     @Override
     public List queryComp() {
-        return comdMapper.queryComp();
+        List list=new ArrayList();
+        String key=COMPKEY;
+        if(redisTemplate.hasKey(key)){
+            list = redisTemplate.opsForList().range(key,0,-1);
+        }else{
+            list=comdMapper.queryComp();
+            redisTemplate.opsForList().leftPush(key,list);
+            redisTemplate.expire(key,10, TimeUnit.DAYS);
+        }
+        return list;
     }
 
     @Override
     public List queryTelv() {
-        return comdMapper.queryTelv();
+        List list = comdMapper.queryTelv();
+        String key=TELEVKEY;
+        if(redisTemplate.hasKey(key)){
+            list = redisTemplate.opsForList().range(key,0,-1);
+        }else{
+            list=comdMapper.queryTelv();
+            redisTemplate.opsForList().leftPush(key,list);
+            redisTemplate.expire(key,10,TimeUnit.DAYS);
+        }
+        return list;
     }
 
     @Override
@@ -58,12 +77,30 @@ public class ComdServiceImpl implements ComdService{
 
     @Override
     public List queryReTui() {
-        return comdMapper.queryReTui();
+        List list = new ArrayList();
+        String key=HOSTKEY;
+        if(redisTemplate.hasKey(key)){
+            list=redisTemplate.opsForList().range(key,0,-1);
+        }else{
+            list = comdMapper.queryReTui();
+            redisTemplate.opsForList().leftPush(key,list);
+            redisTemplate.expire(key,1,TimeUnit.DAYS);
+        }
+        return list;
     }
 
     @Override
     public List queryWeek() {
-        return comdMapper.queryWeek();
+        List list = new ArrayList();
+        String key=WEEKKEY;
+        if(redisTemplate.hasKey(key)){
+            list=redisTemplate.opsForList().range(key,0,-1);
+        }else{
+            list=comdMapper.queryWeek();
+            redisTemplate.opsForList().leftPush(key,list);
+            redisTemplate.expire(key,7,TimeUnit.DAYS);
+        }
+        return list;
     }
 
     @Override
@@ -78,7 +115,17 @@ public class ComdServiceImpl implements ComdService{
 
     @Override
     public List<Adv> queryAdv() {
-        return comdMapper.queryAdv();
+        List<Adv> list=new ArrayList<>();
+        String key=ADVKEY;
+        redisTemplate.delete(key);
+        if (redisTemplate.hasKey(key)) {
+            list=redisTemplate.opsForList().range(key,0,-1);
+        }else{
+            list=comdMapper.queryAdv();
+            redisTemplate.opsForList().leftPush(key,list);
+            redisTemplate.expire(key,15, TimeUnit.DAYS);
+        }
+        return list;
     }
 
     @Override
@@ -94,6 +141,15 @@ public class ComdServiceImpl implements ComdService{
 
     @Override
     public List queryLb() {
-        return comdMapper.queryLb();
+        List list = new ArrayList<>();
+        String key=LBTKEY;
+        if(redisTemplate.hasKey(key)){
+            list=redisTemplate.opsForList().range(key,0,-1);
+        }else{
+            list = comdMapper.queryLb();
+            redisTemplate.opsForList().leftPush(key,list);
+            redisTemplate.expire(key,15,TimeUnit.DAYS);
+        }
+        return list;
     }
 }

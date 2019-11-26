@@ -292,11 +292,11 @@
                     <div class="item-inner">
                       <div class="product-thumbnail">
                         <div class="btn-quickview"> <a :href="'javascript:querydetais('+good.id+')'"><span>查看详情</span></a></div>
-                        <a href="single_product.html" class="product-item-photo"> <img class="product-image-photo" :src="good.img" width="165px" height="220px" alt=""></a> </div>
+                        <a :href="'javascript:querydetais('+good.id+')'" class="product-item-photo"> <img class="product-image-photo" :src="good.img" width="165px" height="220px" alt=""></a> </div>
                       <div class="pro-box-info">
                         <div class="item-info">
                           <div class="info-inner">
-                            <div class="item-title"> <a :title="good.name" href="single_product.html"><span v-html="good.name">{{good.name}}</span></a> </div>
+                            <div class="item-title"> <a :title="good.name" :href="'javascript:querydetais('+good.id+')'"><span v-html="good.name">{{good.name}}</span></a> </div>
                             <div class="item-content">
                               <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                               <div class="item-price">

@@ -22,6 +22,9 @@ import java.util.Map;
 @Controller
 public class AlipayDemoController {
 
+    private String orderId1=null;
+    private Integer count1=null;
+
     @Reference(version = "1.0")
     private OrderService orderService;
 
@@ -29,7 +32,9 @@ public class AlipayDemoController {
     @ResponseBody
     public String goAlipay(HttpServletRequest request, HttpServletRequest response,String price,String orderId,Integer count) throws Exception {
 
-
+        orderId1=orderId;
+        /*=orderId;*/
+        count1=count;
         //获得初始化的AlipayClient
         AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 
@@ -61,8 +66,7 @@ public class AlipayDemoController {
                 + "\"product_code\":\"FAST_INSTANT_TRADE_PAY\"}");
 
         //请求
-        orderService.updOrderStatus(orderId,count);
-        System.err.println(count+"============="+orderId);
+
         String result = alipayClient.pageExecute(alipayRequest).getBody();
         System.out.println("返回页面"+ result);
         return result;
@@ -71,7 +75,6 @@ public class AlipayDemoController {
     @RequestMapping("/returnUrl")
     public String returnUrl(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException, AlipayApiException {
         response.setContentType("text/html;charset=utf-8");
-
         boolean verifyResult = rsaCheckV1(request);
         if(verifyResult){
 
@@ -88,11 +91,11 @@ public class AlipayDemoController {
 
                 }
             }
+            orderService.updOrderStatus(orderId1,count1);
             return "redirect:view";
 
         }else{
             return "redirect:error";
-
         }
     }
     @RequestMapping("toView")
@@ -187,10 +190,8 @@ public class AlipayDemoController {
                 //如果签约的是可退款协议，那么付款完成后，支付宝系统发送该交易状态通知。
 
             }
-
             return "redirect:view";
         }
-
         return "redirect:view";
     }
 }

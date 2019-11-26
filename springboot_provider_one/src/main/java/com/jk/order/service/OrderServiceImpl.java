@@ -90,6 +90,7 @@ public class OrderServiceImpl implements OrderService {
     public void updOrderStatus(String orderId,Integer count) {
 
         orderMapper.updOrderStatus(orderId);
+        System.out.println(111);
         orderMapper.updCommoditys(count,orderId);
 
     }

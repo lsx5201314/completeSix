@@ -18,41 +18,21 @@
 </head>
 
 <body ng-app="pinyougou" ng-controller="cartController" ng-init="findAddressList();findCartList()">
-	<!--head-->
-	<div class="top">
-		<div class="py-container">
-			<div class="shortcut">
-				<ul class="fl">
-					<li class="f-item">品优购欢迎您！</li>
-					<li class="f-item">请登录　<span><a href="#">免费注册</a></span></li>
-				</ul>
-				<ul class="fr">
-					<li class="f-item">我的订单</li>
-					<li class="f-item space"></li>
-					<li class="f-item">我的品优购</li>
-					<li class="f-item space"></li>
-					<li class="f-item">品优购会员</li>
-					<li class="f-item space"></li>
-					<li class="f-item">企业采购</li>
-					<li class="f-item space"></li>
-					<li class="f-item">关注品优购</li>
-					<li class="f-item space"></li>
-					<li class="f-item">客户服务</li>
-					<li class="f-item space"></li>
-					<li class="f-item">网站导航</li>
-				</ul>
-			</div>
-		</div>
-	</div>
 	<div class="cart py-container">
 		<!--logoArea-->
 		<div class="logoArea">
-			<div class="fl logo"><span class="title">结算页</span></div>
+			<div style="margin-top: 30px"><a href="../to/index"><img src="../images/pulse1.png" width="214"></a><span class="title"><font size="6">结算页</font></span></div>
 			<div class="fr search">
 				<form class="sui-form form-inline">
 					<div class="input-append">
-						<!--<input type="text" type="text" class="input-error input-xxlarge" placeholder="品优购自营" />-->
-						<button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
+						<input id="searchId"  type="text" class="input-error input-xxlarge" placeholder="六卖商铺自营" />
+						<button class="sui-btn btn-xlarge btn-danger" type="button" onclick="tosearch()">搜索</button>
+						<script>
+							function tosearch(){
+								var info = $("#searchId").val();
+								location.href="http://127.0.0.1:8083/tosolr/tosolrshow?flag="+info;
+							}
+						</script>
 					</div>
 				</form>
 			</div>
@@ -65,7 +45,7 @@
 			<div class="checkout-steps">
 				<!--收件人信息-->
 				<div class="step-tit">
-					<h5>收件人信息<span><a data-toggle="modal" data-target=".edit" data-keyboard="false" class="newadd">新增收货地址</a></span></h5>
+					<h5>收件人信息<span><a data-toggle="modal" data-target=".edit" data-keyboard="false" class="newadd">点击填写收货信息</a></span></h5>
 				</div>
 				<div class="step-cont">
 					<div class="addressInfo">
@@ -100,7 +80,6 @@
 									      <input type="text" class="input-medium" name="contact">
 									    </div>
 									  </div>
-									   
 									   <div class="control-group">
 									    <label class="control-label" >详细地址：</label>
 									    <div class="controls">
@@ -113,22 +92,6 @@
 									      <input type="text" class="input-medium" name="Mobile">
 									    </div>
 									  </div>
-									   <div class="control-group">
-									    <label class="control-label" name="">邮箱：</label>
-									    <div class="controls">
-									      <input type="text" class="input-medium">
-									    </div>
-									  </div>
-									   <div class="control-group">
-									    <label class="control-label" name="">地址别名：</label>
-									    <div class="controls">
-									      <input type="text" class="input-medium">
-									    </div>
-									    <div class="othername">
-									    	建议填写常用地址：<a href="#" class="sui-btn btn-default">家里</a>　<a href="#" class="sui-btn btn-default">父母家</a>　<a href="#" class="sui-btn btn-default">公司</a>
-									    </div>
-									  </div>
-									  
 						      	</form>
 						      	
 						      	
@@ -213,8 +176,8 @@
 		<div class="order-summary" ng-controller="findCartList">
 			<div class="static fr">
 				<div class="list">
-					<span><i class="number">{{totalValue}}</i>件商品，总商品金额</span>
-					<em class="allprice">¥{{totalValue}}</em>
+					<span>总商品金额</span>
+					<em class="allprice"><font color="red" size="6">¥{{totalValue}}</font></em>
 				</div>
 				<div class="list">
 					<span>返现：</span>
@@ -222,7 +185,7 @@
 				</div>
 				<div class="list">
 					<span>运费：</span>
-					<em class="transport">0.00</em>
+					<em class="transport">免运费</em>
 				</div>
 			</div>
 		</div>
@@ -356,7 +319,7 @@
 					<li>友情链接<span class="space"></span></li>
 					<li>关于我们</li>
 				</ul>
-				<p>地址：北京市昌平区建材城西路金燕龙办公楼一层 邮编：100096 电话：400-618-4000 传真：010-82935100</p>
+				<p>地址：西安金科教育 邮编：888888 电话：400-888-8888 传真：000-88888888</p>
 				<p>京ICP备08001421号京公网安备110108007702</p>
 			</div>
 		</div>
