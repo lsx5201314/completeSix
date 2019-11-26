@@ -1258,7 +1258,6 @@
           url:"../mycart/removeMyCartByGoodsId",
           data:{id:id},
           success:function(){
-            alert("删除成功")
             location.reload();
             this.cartView();
           }
@@ -1278,6 +1277,33 @@
     }
 
   })
+    $("#talkIds").click(function(event){
+      var goodsIds = document.getElementById("goodsIds").innerText;
+      $.ajax({
+
+        url:"../talk/queryTalk?id="+goodsIds,
+        success:function(data){
+          /* if(data=='[]'){
+               alert(111);
+           }*/
+          var li="";
+          for (var i =0;i<data.length;i++){
+
+            // li+="<font color=\"black\" size=\"2\"><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+data[i].talkinfo+"<span class=\"commentId\"></span></p></font><p>用户:&nbsp<a href='javaScript:toQueryUser("+data[i].cmsUserId+")'><font color=\"green\" size=\"3\">"+data[i].cmsUserName+"</font></a>&nbsp评论日期:"+data[i].talktime+"</p><hr color='red'>";
+            /* li+="<li class=\"newslist\">用户:&nbsp<a href='javaScript:toQueryUser("+data[i].cmsUserId+")'><font color='green'>"+data[i].cmsUserName+"</font></a>&nbsp&nbsp&nbsp<span>"+data[i].talktime+"</span>"+data[i].talkinfo+"</li>";*/
+            li+="<div class=\"comment\">\n" +
+                    "    <div class=\"comment-content\">\n" +
+                    "        <p class=\"author\"><strong>"+data[i].cmsUserName+"&nbsp</strong>"+data[i].talktime+"</p>\n" +
+                    "        <span>\n"+data[i].talkinfo+"</span>\n" +
+                    "    </div>\n" +
+                    "</div>";
+          }
+          $("#talkProductId").val(data[0].productId);
+          $("#pingLunId").html(li);
+        }
+      })
+
+    })
 
     //全局过滤器，可以在任何一个页面使用
     Vue.filter("money",function(value,type){
