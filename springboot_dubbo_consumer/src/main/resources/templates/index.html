@@ -79,7 +79,7 @@
               <div id="search">
                 <form>
                   <div class="input-group">
-                    <select class="cate-dropdown hidden-xs hidden-sm" name="category_id" onchange="selecFacon(this.value)">
+                    <select class="cate-dropdown hidden-xs hidden-sm" name="category_id" onchange="selectsetBigType(this.value)">
                         <!--主搜有下拉-->
                       <option  value="">所有分类</option>
                       <option value="1">手机</option>
@@ -147,21 +147,21 @@
           <div class="main-menu">
             <nav>
               <ul>
-                <li ><a href="javascript:queryType(1)">手机</a>
+                <li ><a href="javascript:setBigType(1,'手机')">手机</a>
                   <ul class="dropdown">
 
                     <span id="phoneIdd"></span>
 
                   </ul>
                 </li>
-                <li ><a href="javascript:queryType(2)">电脑</a>
+                <li ><a href="javascript:setBigType(2,'电脑')">电脑</a>
                   <ul class="dropdown">
 
                     <span id="compIdd"></span>
 
                   </ul>
                 </li>
-                <li ><a href="javascript:queryType(3)">电视</a>
+                <li ><a href="javascript:setBigType(3,'电视')">电视</a>
                   <ul class="dropdown">
 
                     <span id="tevleIdd"></span>
@@ -770,6 +770,12 @@
 
 <!-- start Footer -->
   <a href="#" class="totop"> </a> </div>
+<!--小类-->
+<input id="smalltypeid" type="hidden">
+<input id="smalltypename" type="hidden">
+<!--大类-->
+<input type="hidden" id="bigtypeid">
+<input type="hidden" id="bigtypename">
 <!-- End Footer -->
 
 <!-- JS -->
@@ -1385,11 +1391,38 @@
 
       <!--标签框-->
       function queryType(id){
-        location.href="../tosolr/tosolrshow?flag="+id;
+        if (id="undefined"){
+          id="";
+        }
+        var bigTypeId= $("#bigtypeid").val()
+        var bigTypeName= $("#bigtypename").val()
+        var smallTypeid= $("#smalltypeid").val()
+        var smalltypename= $("#smalltypename").val()
+        location.href="../tosolr/tosolrshow?flag="+id+"&bigTypeId="+bigTypeId+"&bigTypeName="+bigTypeName+
+                "&smallTypeid="+smallTypeid+"&smalltypename="+smalltypename;
       }
+      /*大类*/
+      function setBigType(id,name) {
+        $("#bigtypeid").val(id)
+        $("#bigtypename").val(name)
+        queryType()
+      }
+      /**/
+    function selectsetBigType(id) {
+      if(id==1){
+        setBigType(1,'手机')
+      }else if(id==2){
+        setBigType(2,'电脑')
+      }else {
+        setBigType(3,'电视')
+      }
+    }
 
-
-
+    function setSmallType(id,name) {
+       $("#smalltypeid").val(id)
+        $("#smalltypename").val(name)
+        queryType()
+    }
     <!--初始化加载类型-->
     function initType(){
       $.ajax({
@@ -1398,7 +1431,7 @@
         success:function (data) {
           var info="";
               for(var i=0;i<data.length;i++){
-                    info+='<li><a href="javascript:queryType('+data[i].productBrand_id+')">'+data[i].productBrand_name+'</a></li>'
+                    info+='<li><a href="javascript:setSmallType('+data[i].productBrand_id+',\''+data[i].productBrand_name+'\')">'+data[i].productBrand_name+'</a></li>'
               }
           $("#spanTypeId").html(info)
         }
@@ -1428,7 +1461,7 @@
                  var arr1=data[i].productBrand_name.split(",");
                  var arrlength=arr.length;
                 for(var j=0;j<arrlength;j++){
-                  phoneInfo+='<li><a href="javascript:queryType('+arr[j]+')">'+arr1[j]+'</a></li>'
+                  phoneInfo+='<li><a href="javascript:setSmallType('+arr[j]+',\''+arr1[j]+'\')">'+arr1[j]+'</a></li>'
                 }
                 if(count==1){
                   $("#phoneIdd").html(phoneInfo)

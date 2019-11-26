@@ -46,10 +46,10 @@ public class GoodssolrController {
                 params.set("q","*:*");
             }
             //过滤条件
-            if (goods.getBrandId()!=null && goods.getTypeId()!=0){
+            if (goods.getBrandId()!=null && !"".equals(goods.getBrandId())){
                 params.set("fq","brandId:"+goods.getBrandId());
             }
-            if (goods.getTypeId()!=null && goods.getTypeId()!=0){
+            if (goods.getTypeId()!=null && !"".equals(goods.getTypeId())){
                 params.set("fq","typeId:"+goods.getTypeId());
             }
             // 设置查询的排序参数，1-排序的字段名，2-排序方式（ORDER：asc desc）
@@ -86,7 +86,7 @@ public class GoodssolrController {
 
             PageModel pageModel = new PageModel((int) numFound, page.getPageNow(), page.getPageCount());
 
-            System.out.println(numFound);
+
             //获取高亮显示的结果, 高亮显示的结果和查询结果是分开放的
             Map<String, Map<String, List<String>>> highlight = queryResponse.getHighlighting();
             List<SolrGoods> list1 =new ArrayList<SolrGoods>();
@@ -95,7 +95,6 @@ public class GoodssolrController {
                 String highFile="";
                 Map<String, List<String>> map = highlight.get(result.get("id"));
                 List<String> list = map.get("name");
-                System.out.println(list);
                 if (list==null){
                     highFile = (String)result.get("name");
                 }else {
