@@ -16,6 +16,7 @@ import java.util.List;
  * @Version V1.0
  **/
 public interface CollectMapper {
+
     List<Collect> queryCollect(@Param("userId") Integer userId);
 
     void deleteCollect(@Param("id") Integer id);
@@ -24,7 +25,7 @@ public interface CollectMapper {
 
     List<TOrder> myOrder(@Param("cmsUserId") Integer cmsUserId);
 
-    List<Commodity> detailed(@Param("id") Integer id);
+    List<Commodity> detailed(@Param("id") String id);
 
     Talk addTalk(@Param("id") Integer id,@Param("cmsUserId") Integer cmsUserId);
 

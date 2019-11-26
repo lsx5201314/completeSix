@@ -72,7 +72,53 @@
 
 
 <div id="page">
-    <button class="button" onclick="location.href='../to/index'">返回首页</button>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 col-md-3 col-xs-12">
+                        <!-- 跳转到主页 -->
+                        <div class="logo"><a title="e-commerce"  href="../to/index"><img alt="e-commerce" src="../images/pulse1.png"></a> </div>
+                        <!-- End Header Logo -->
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-6">
+                        <!-- 搜索 -->
+                        <div class="top-search">
+                            <div id="search">
+                                <form>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search"  name="search">
+                                        <button class="btn-search" type="button" onclick="queryByflag()" style="height:40px"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- End Search -->
+                    </div>
+                    <div class="col-lg-3 col-sm-4 col-xs-12 top-cart">
+                        <div class="link-wishlist"> <a href="javascript:towish()"><i class="fa fa-heart fa-lg"></i> </a> </div>
+                        <div class="top-cart-contain">
+                            <div class="mini-cart">
+                                <div class="basket dropdown-toggle">
+                                    <a href="../toCart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- end header -->
+
+
+   <!-- <button class="button" onclick="location.href='../to/index'">返回首页</button>-->
     <!-- Main Container -->
     <div class="main-container col1-layout">
         <div class="container">
@@ -147,7 +193,6 @@
                             <div class="product-cart-option">
                                 <ul>
                                     <li><li><a href="javascript:addcollect()"><i class="fa fa-heart"></i><span>添加到我的收藏</span></a></li></li>
-                                    <li><a class="add-to-cart"><i class="fa fa-retweet"></i><span>添加到购物车</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -399,7 +444,7 @@
                 url:"../mycart/addGoodsToCartList",
                 data:{num:count,itemId:$("#goodsIds").text()},
                 success:function(){
-                    alert("添加购物车成功");
+                    toastr.success('添加购物车成功');
                 }
             })
         })
@@ -410,12 +455,20 @@
                 url:"../mycart/addGoodsToCartList",
                 data:{num:count,itemId:$("#goodsIds").text()},
                 success:function(){
-                    alert("添加购物车成功");
+                    toastr.success('添加购物车成功');
                 }
             })
         }
 
+        /*跳转收藏页面*/
+        function towish() {
+            location.href="../collect/tocollect";
+        }
 
+        function queryByflag() {
+            var flag = $("[name='search']").val()
+            location.href="../tosolr/tosolrshow?flag="+flag
+        }
 
         function jianAdd(){
 
@@ -426,6 +479,7 @@
             }
             return false;
         }
+
         function jiaAdd(){
 
             var qty =$("#qty").val();
@@ -437,76 +491,21 @@
         }
 
 
-
-
-
-
-
-
-                            $(".add-to-cart").click(function(event){
-                                  var count=$("#qty").val();
-                                  $.ajax({
-                                      url:"../mycart/addGoodsToCartList",
-                                      data:{num:count,itemId:$("#goodsIds").text()},
-                                      success:function(){
-                                         alert("添加购物车成功");
-                                      }
-                                  })
-                            })
-
-                            function addcart(){
-                                var count=$("#qty").val();
-                                $.ajax({
-                                    url:"../mycart/addGoodsToCartList",
-                                    data:{num:count,itemId:$("#goodsIds").text()},
-                                    success:function(){
-                                        alert("添加购物车成功");
-                                    }
-                                })
-                            }
-
-
-                            function toShowGoodsInfo(){
-
-                                /* location.href="../views/commodity/queryCommodityById";*/
-                                alert(123222);
-                            }
-
-                            function jianAdd(){
-
-                                var qty =$("#qty").val();
-                                if(qty!=null & qty > 1 ){
-                                    qty--;
-                                    $("#qty").val(qty);
-                                }
-                                return false;
-                            }
-                            function jiaAdd(){
-
-                                var qty =$("#qty").val();
-                                if(qty!=null & qty > 0 ){
-                                    qty++;
-                                    $("#qty").val(qty);
-                                }
-                                return false;
-                            }
-
-
-                            function addcollect(){
-                                //alert($('#goodsIds').text())
-                                $.ajax({
-                                    url:"../collect/addCollect?commodityId="+$('#goodsIds').text(),
-                                    success:function (data) {
-                                        if(data==1){
-                                            toastr.success('已关注');
-                                        }else{
-                                            toastr.error('以取消关注');
-                                        }
-                                    }
-                                })
-                            }
-                            toastr.options.positionClass = 'toast-bottom-right';
-                        </script>
+        function addcollect(){
+            //alert($('#goodsIds').text())
+            $.ajax({
+                url:"../collect/addCollect?commodityId="+$('#goodsIds').text(),
+                success:function (data) {
+                    if(data==1){
+                        toastr.success('已关注');
+                    }else{
+                        toastr.error('以取消关注');
+                    }
+                }
+            })
+        }
+        toastr.options.positionClass = 'toast-bottom-right';
+    </script>
 
 
 

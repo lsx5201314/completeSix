@@ -83,7 +83,7 @@ app.controller('cartController',function($scope,cartService){
 			function(response){
 				//页面跳转
 				if($scope.order.paymentType=='1'){//如果是微信支付，跳转到支付页面
-					location.href="../goAlipay?price="+$scope.totalValue+"orderId="+response+"count="+$scope.cartCount;
+					location.href="../goAlipay?price="+$scope.totalValue+"&orderId="+response+"&count="+$scope.cartCount;
 				}else{//如果货到付款，跳转到提示页面
 					location.href="../toPaysuccess";
 				}

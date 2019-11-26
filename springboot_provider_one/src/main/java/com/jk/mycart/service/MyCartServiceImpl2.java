@@ -29,7 +29,7 @@ public class MyCartServiceImpl2 implements MyCartService2 {
     public List<Commodity> mergeCartList( List<Commodity> cartList_cookie, List<Commodity> cartList_redis ) {
         //合并购物车
         for(Commodity cart:cartList_cookie){
-            cartList_redis.add(cart);
+                    cartList_redis.add(cart);
         }
         return cartList_redis;
     }
@@ -46,9 +46,10 @@ public class MyCartServiceImpl2 implements MyCartService2 {
     @Override
     public List<Commodity> addGoodsToCartList( List<Commodity> cartList, Long itemId, Integer num ) {
         List<Commodity> resultRedisCartList= myCartMapper2.selectByPrimaryKey(itemId);
+
         for (Commodity cart:resultRedisCartList) {
-            cart.setProductNum(num);
-            cart.setAllPriceProduct(num*cart.getCommodityPrice()+"");
+                cart.setProductNum(num);
+                cart.setAllPriceProduct(num*cart.getCommodityPrice()+"");
         }
         return resultRedisCartList;
     }

@@ -6,7 +6,6 @@ import com.jk.collect.model.Collect;
 import com.jk.goods.model.Commodity;
 import com.jk.order.model.TOrder;
 import com.jk.talk.model.Talk;
-import com.jk.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +18,9 @@ import java.util.List;
  * @Date 2019/11/22 10:59
  * @Version V1.0
  **/
-@Service(version = "1.1")
-
+@Service(version = "1.0")
 public class CollectServiceImpl implements CollectService {
+
     @Autowired
     private CollectMapper collectMapper;
 
@@ -46,7 +45,7 @@ public class CollectServiceImpl implements CollectService {
     }
 
     @Override
-    public List<Commodity> detailed(Integer id) {
+    public List<Commodity> detailed(String id) {
         return collectMapper.detailed(id);
     }
 

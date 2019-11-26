@@ -26,7 +26,7 @@ import java.util.List;
 @RequestMapping("collect")
 public class CollectController {
 
-    @Reference(version = "1.1")
+    @Reference(version = "1.0")
     private CollectService collectService;
 
 
@@ -54,7 +54,7 @@ public class CollectController {
 
     @RequestMapping("detailed")
     @ResponseBody
-    public List<Commodity> detailed(Integer id){
+    public List<Commodity> detailed(String id){
 
         return collectService.detailed(id);
     }

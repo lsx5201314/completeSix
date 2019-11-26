@@ -23,7 +23,7 @@ public interface CollectService {
 
     List<TOrder> myOrder(Integer cmsUserId);
 
-    List<Commodity> detailed(Integer id);
+    List<Commodity> detailed(String id);
 
     Talk addTalk(Integer id, Integer cmsUserId);
 

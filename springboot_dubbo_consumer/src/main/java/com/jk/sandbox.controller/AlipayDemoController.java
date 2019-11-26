@@ -7,7 +7,6 @@ import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.internal.util.AlipaySignature;
 import com.alipay.api.request.AlipayTradePagePayRequest;
 import com.jk.order.service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +18,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.UUID;
 
 @Controller
 public class AlipayDemoController {
@@ -64,6 +62,7 @@ public class AlipayDemoController {
 
         //请求
         orderService.updOrderStatus(orderId,count);
+        System.err.println(count+"============="+orderId);
         String result = alipayClient.pageExecute(alipayRequest).getBody();
         System.out.println("返回页面"+ result);
         return result;

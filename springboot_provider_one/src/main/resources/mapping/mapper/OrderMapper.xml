@@ -10,12 +10,12 @@
       <update id="updOrderStatus" parameterType="string">
           update t_order t set t.status=2 where t.orderid=#{orderId,jdbcType=VARCHAR}
       </update>
-      <update id="updCommoditys" parameterType="integer">
+      <update id="updCommoditys">
             update t_order o left join t_orderinfo oo on o.orderid=oo.orderinfooid
 								 left join t_commodity tc on tc.productId=oo.orderinfopid
 								 left join t_commodity_color tcc on tcc.commodityid=tc.productId
 								 left join t_productcolor tpr on tcc.productColorId=tpr.productColor_id
-            set tpr.productColor_count=tpr.productColor_count - #{count,jdbcType=INTEGER} where o.orderid=#{orderId,jdbcType=VARCHAR}
+            set tpr.productColor_count=tpr.productColor_count - #{count} where o.orderid=#{orderId,jdbcType=VARCHAR}
 
       </update>
   </mapper>
