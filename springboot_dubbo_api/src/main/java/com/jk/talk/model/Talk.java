@@ -1,52 +1,68 @@
 package com.jk.talk.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
+import java.util.Date;
 
 public class Talk implements Serializable {
 
-    private Integer talkId;
-    private Integer talkInfo;
-    private Integer talkUserId;
-    private Integer talkProductId;
-    private Integer talkType;
 
-    public Integer getTalkId() {
-        return talkId;
+    private static final long serialVersionUID = -6580170885266930033L;
+
+    private Integer talkid;
+    private String talkinfo;
+    private Integer talkuserid;
+    private Integer talkproductid;
+    private Integer talktype;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date talktime;
+
+    public Integer getTalkid() {
+        return talkid;
     }
 
-    public void setTalkId(Integer talkId) {
-        this.talkId = talkId;
+    public void setTalkid(Integer talkid) {
+        this.talkid = talkid;
     }
 
-    public Integer getTalkInfo() {
-        return talkInfo;
+    public String getTalkinfo() {
+        return talkinfo;
     }
 
-    public void setTalkInfo(Integer talkInfo) {
-        this.talkInfo = talkInfo;
+    public void setTalkinfo(String talkinfo) {
+        this.talkinfo = talkinfo;
     }
 
-    public Integer getTalkUserId() {
-        return talkUserId;
+    public Integer getTalkuserid() {
+        return talkuserid;
     }
 
-    public void setTalkUserId(Integer talkUserId) {
-        this.talkUserId = talkUserId;
+    public void setTalkuserid(Integer talkuserid) {
+        this.talkuserid = talkuserid;
     }
 
-    public Integer getTalkProductId() {
-        return talkProductId;
+    public Integer getTalkproductid() {
+        return talkproductid;
     }
 
-    public void setTalkProductId(Integer talkProductId) {
-        this.talkProductId = talkProductId;
+    public void setTalkproductid(Integer talkproductid) {
+        this.talkproductid = talkproductid;
     }
 
-    public Integer getTalkType() {
-        return talkType;
+    public Integer getTalktype() {
+        return talktype;
     }
 
-    public void setTalkType(Integer talkType) {
-        this.talkType = talkType;
+    public void setTalktype(Integer talktype) {
+        this.talktype = talktype;
+    }
+
+    public Date getTalktime() {
+        return talktime;
+    }
+
+    public void setTalktime(Date talktime) {
+        this.talktime = talktime;
     }
 }

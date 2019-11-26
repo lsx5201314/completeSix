@@ -812,6 +812,8 @@
 
 <!-- flexslider js -->
 <script type="text/javascript" src="../js/jquery.flexslider.js"></script>
+<link href="../toastr.css" rel="stylesheet" />
+<script src="../toastr.min.js"></script>
 <!-- Hot Deals Timer 1-->
 <script type="text/javascript">
     $(function(){
@@ -1523,12 +1525,17 @@
         queryType(data);
     }
 
-
+    toastr.options.positionClass = 'toast-bottom-right';
     function addcollect(commodityId){
       $.ajax({
         url:"../collect/addCollect?commodityId="+commodityId,
         success:function (data) {
-          alert("已加入我的关注")
+          //alert("已加入我的关注")
+          if(data==1){
+            toastr.success('已关注');
+          }else{
+            toastr.error('以取消关注');
+          }
         }
       })
     }

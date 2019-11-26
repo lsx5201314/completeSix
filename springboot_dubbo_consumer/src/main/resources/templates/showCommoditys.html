@@ -51,6 +51,7 @@
 
     <!-- style CSS -->
     <link rel="stylesheet" type="text/css" href="../views/css/style.css" media="all">
+
 </head>
 <style type="text/css">
     <!--
@@ -65,19 +66,10 @@
         display: inline-block;
         font-size: 16px;
     }
-
-
     -->
 </style>
-</head>
-
 <body>
 
-
-
-<!--[if lt IE 8]>
-<!--<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
-<!--[endif]---->
 
 <div id="page">
     <button class="button" onclick="location.href='../to/index'">返回首页</button>
@@ -253,6 +245,13 @@
 
     <!-- Mean Menu js -->
     <script type="text/javascript" src="../views/js/jquery.meanmenu.min.js"></script>
+
+                        <link href="../toastr.css" rel="stylesheet" />
+                        <script src="../toastr.min.js"></script>
+                        <span id="goodsIds"  th:text="${commodity.productId}" th:hidden="true"></span>
+                        <span id="priceIds"  th:text="${commodity.commodityPrice}" th:hidden="true"></span>
+
+
 
     <!-- owl.carousel.min js -->
     <script type="text/javascript" src="../views/js/owl.carousel.min.js"></script>
@@ -438,17 +437,80 @@
         }
 
 
-        function addcollect(){
-            alert($('#goodsIds').text())
-            $.ajax({
-                url:"../collect/addCollect?commodityId="+$('#goodsIds').text(),
-                success:function (data) {
-                    alert("已加入我的关注")
-                }
-            })
-        }
-    </script>
 
+
+
+
+
+
+                            $(".add-to-cart").click(function(event){
+                                  var count=$("#qty").val();
+                                  $.ajax({
+                                      url:"../mycart/addGoodsToCartList",
+                                      data:{num:count,itemId:$("#goodsIds").text()},
+                                      success:function(){
+                                         alert("添加购物车成功");
+                                      }
+                                  })
+                            })
+
+                            function addcart(){
+                                var count=$("#qty").val();
+                                $.ajax({
+                                    url:"../mycart/addGoodsToCartList",
+                                    data:{num:count,itemId:$("#goodsIds").text()},
+                                    success:function(){
+                                        alert("添加购物车成功");
+                                    }
+                                })
+                            }
+
+
+                            function toShowGoodsInfo(){
+
+                                /* location.href="../views/commodity/queryCommodityById";*/
+                                alert(123222);
+                            }
+
+                            function jianAdd(){
+
+                                var qty =$("#qty").val();
+                                if(qty!=null & qty > 1 ){
+                                    qty--;
+                                    $("#qty").val(qty);
+                                }
+                                return false;
+                            }
+                            function jiaAdd(){
+
+                                var qty =$("#qty").val();
+                                if(qty!=null & qty > 0 ){
+                                    qty++;
+                                    $("#qty").val(qty);
+                                }
+                                return false;
+                            }
+
+
+                            function addcollect(){
+                                //alert($('#goodsIds').text())
+                                $.ajax({
+                                    url:"../collect/addCollect?commodityId="+$('#goodsIds').text(),
+                                    success:function (data) {
+                                        if(data==1){
+                                            toastr.success('已关注');
+                                        }else{
+                                            toastr.error('以取消关注');
+                                        }
+                                    }
+                                })
+                            }
+                            toastr.options.positionClass = 'toast-bottom-right';
+                        </script>
+
+
+
+</div>
 
 
 </body>

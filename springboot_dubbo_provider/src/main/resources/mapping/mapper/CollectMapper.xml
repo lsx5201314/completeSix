@@ -18,4 +18,42 @@
   <insert id="addCollect">
     insert into t_collect (userId,commodityId) values (#{userId},#{commodityId})
   </insert>
+
+  <select id="myOrder" resultType="com.jk.order.model.TOrder">
+    select t.orderid orderid,t.payment payment,t.paytype paytype,
+    t.status status,t.createtime createtime,t.userid userid,t.recarea recarea,t.recphone recphone,
+    t.receiver receiver,
+    cu.cmsUserName username from t_order t
+    left join cms_user cu  on t.userid = cu.cmsUserId
+    where t.userid = #{cmsUserId}
+  </select>
+
+  <select id="detailed" resultType="com.jk.goods.model.Commodity">
+    select tcd.productId productId,tcd.productName productName,tcd.commodityPrice commodityPrice,
+    tcd.theNetModel theNetModel,tcd.productIntroduction productIntroduction,
+    tpb.productBrand_name productBrandname from t_orderinfo tod
+
+    LEFT JOIN t_commodity tcd on tod.orderinfopid = tcd.productId
+
+    LEFT JOIN t_productbrand tpb on tcd.productBrand = tpb.productBrand_id
+
+    where tod.orderinfooid = #{id}
+  </select>
+
+  <select id="addTalk" resultType="com.jk.talk.model.Talk">
+    select * from t_talk where talkuserid = #{cmsUserId} and talkproductid = #{id}
+  </select>
+
+  <insert id="addTalk2" >
+    insert into t_talk (talkinfo,talkuserid,talkproductid,talktime)
+    values(#{talkinfo},#{userid},#{id},sysdate())
+  </insert>
+
+  <select id="queryCollectByCommodityId" resultType="com.jk.collect.model.Collect">
+    select * from t_collect where commodityId = #{commodityId}
+  </select>
+
+  <delete id="deleteCollectAll">
+    delete from t_collect  where commodityId = #{commodityId} and userId= #{cmsUserId}
+  </delete>
   </mapper>
