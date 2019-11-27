@@ -1,0 +1,404 @@
+22-Nov-2019 07:28:05.977 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 07:28:05.978 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 07:28:05.979 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 07:28:05.979 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 07:28:05.979 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 07:28:05.979 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 07:28:05.979 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 07:28:05.980 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 07:28:05.980 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 07:28:05.980 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 07:28:05.980 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 07:28:05.980 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 07:28:05.980 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 07:28:05.981 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 07:28:05.981 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 07:28:05.981 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 07:28:05.981 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 07:28:05.982 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 07:28:05.982 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 07:28:05.985 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 07:28:06.733 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 07:28:06.933 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 07:28:06.946 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 07:28:06.950 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1389 ms
+22-Nov-2019 07:28:06.996 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 07:28:06.996 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 07:28:07.006 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 07:28:07.679 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [309] milliseconds.
+22-Nov-2019 07:28:07.714 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 708 ms
+22-Nov-2019 07:28:07.715 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 07:28:08.913 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 1,199 ms
+22-Nov-2019 07:28:08.913 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 07:28:08.947 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 34 ms
+22-Nov-2019 07:28:08.948 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 07:28:08.984 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 36 ms
+22-Nov-2019 07:28:08.984 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 07:28:09.014 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 30 ms
+22-Nov-2019 07:28:09.014 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 07:28:15.714 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 07:28:17.203 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 8,188 ms
+22-Nov-2019 07:28:17.209 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 07:28:17.217 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 07:28:17.223 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 10273 ms
+22-Nov-2019 09:52:41.771 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 09:52:41.772 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 09:52:41.773 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 09:52:41.773 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 09:52:41.773 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 09:52:41.773 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 09:52:41.773 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 09:52:41.774 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 09:52:41.774 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 09:52:41.774 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:52:41.774 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:52:41.775 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 09:52:41.775 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 09:52:41.775 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 09:52:41.775 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 09:52:41.775 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:52:41.776 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:52:41.777 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 09:52:41.777 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 09:52:41.780 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 09:52:42.377 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 09:52:42.805 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:52:42.813 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:52:42.814 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1362 ms
+22-Nov-2019 09:52:42.854 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 09:52:42.854 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 09:52:42.863 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 09:52:43.282 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [199] milliseconds.
+22-Nov-2019 09:52:43.299 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 436 ms
+22-Nov-2019 09:52:43.300 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 09:52:44.008 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 708 ms
+22-Nov-2019 09:52:44.008 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 09:52:44.039 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 31 ms
+22-Nov-2019 09:52:44.039 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 09:52:44.069 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 30 ms
+22-Nov-2019 09:52:44.069 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 09:52:44.093 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 24 ms
+22-Nov-2019 09:52:44.093 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 09:52:48.408 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 09:52:54.467 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 10,373 ms
+22-Nov-2019 09:52:54.473 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:52:54.487 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:52:54.492 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 11677 ms
+22-Nov-2019 09:54:02.385 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact localhost:8005. Tomcat may not be running.
+22-Nov-2019 09:54:08.043 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 09:54:08.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 09:54:08.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 09:54:08.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 09:54:08.044 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 09:54:08.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 09:54:08.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 09:54:08.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 09:54:08.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 09:54:08.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:54:08.045 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:54:08.046 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 09:54:08.046 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 09:54:08.046 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 09:54:08.046 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 09:54:08.046 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:54:08.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:54:08.047 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 09:54:08.048 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 09:54:08.051 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 09:54:08.585 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 09:54:08.683 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:54:08.691 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:54:08.693 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 946 ms
+22-Nov-2019 09:54:08.724 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 09:54:08.725 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 09:54:08.736 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 09:54:09.134 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [189] milliseconds.
+22-Nov-2019 09:54:09.151 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 414 ms
+22-Nov-2019 09:54:09.151 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 09:54:09.412 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 261 ms
+22-Nov-2019 09:54:09.413 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 09:54:09.449 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 36 ms
+22-Nov-2019 09:54:09.450 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 09:54:09.474 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 24 ms
+22-Nov-2019 09:54:09.475 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 09:54:09.505 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 30 ms
+22-Nov-2019 09:54:09.505 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 09:54:13.766 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 09:54:19.585 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 10,080 ms
+22-Nov-2019 09:54:19.589 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:54:19.598 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:54:19.600 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 10906 ms
+22-Nov-2019 09:54:58.956 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+22-Nov-2019 09:54:58.957 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:54:59.014 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:54:59.065 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+22-Nov-2019 09:54:59.108 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:54:59.164 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:54:59.216 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:54:59.218 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:55:03.946 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact localhost:8005. Tomcat may not be running.
+22-Nov-2019 09:56:33.416 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 09:56:33.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 09:56:33.417 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 09:56:33.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 09:56:33.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 09:56:33.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 09:56:33.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 09:56:33.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 09:56:33.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 09:56:33.418 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:56:33.419 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:56:33.419 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 09:56:33.419 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 09:56:33.419 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 09:56:33.420 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 09:56:33.420 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:56:33.420 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:56:33.420 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 09:56:33.421 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 09:56:33.424 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 09:56:33.977 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 09:56:34.076 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:56:34.084 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:56:34.086 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 966 ms
+22-Nov-2019 09:56:34.118 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 09:56:34.119 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 09:56:34.130 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 09:56:34.531 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [188] milliseconds.
+22-Nov-2019 09:56:34.547 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 417 ms
+22-Nov-2019 09:56:34.547 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 09:56:34.827 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 280 ms
+22-Nov-2019 09:56:34.827 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 09:56:34.860 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 33 ms
+22-Nov-2019 09:56:34.860 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 09:56:34.889 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 29 ms
+22-Nov-2019 09:56:34.890 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 09:56:34.909 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 19 ms
+22-Nov-2019 09:56:34.909 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 09:56:39.195 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 09:56:45.023 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 10,114 ms
+22-Nov-2019 09:56:45.028 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:56:45.035 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:56:45.038 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 10951 ms
+22-Nov-2019 09:57:09.528 INFO [Thread-4] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:57:09.591 INFO [Thread-4] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:57:09.643 INFO [Thread-4] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+22-Nov-2019 09:57:09.718 INFO [Thread-4] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:57:09.794 INFO [Thread-4] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:57:09.898 INFO [Thread-4] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:57:09.900 INFO [Thread-4] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:57:41.713 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 09:57:41.714 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 09:57:41.714 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 09:57:41.714 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 09:57:41.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 09:57:41.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 09:57:41.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 09:57:41.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 09:57:41.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 09:57:41.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:57:41.715 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:57:41.716 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 09:57:41.716 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 09:57:41.716 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 09:57:41.716 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 09:57:41.716 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:57:41.717 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 09:57:41.720 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 09:57:41.724 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 09:57:41.727 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 09:57:42.282 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 09:57:42.383 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:57:42.392 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:57:42.394 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 989 ms
+22-Nov-2019 09:57:42.429 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 09:57:42.429 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 09:57:42.439 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 09:57:42.840 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [189] milliseconds.
+22-Nov-2019 09:57:42.857 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 418 ms
+22-Nov-2019 09:57:42.858 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 09:57:43.158 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 300 ms
+22-Nov-2019 09:57:43.158 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 09:57:43.185 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 27 ms
+22-Nov-2019 09:57:43.186 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 09:57:43.216 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 30 ms
+22-Nov-2019 09:57:43.216 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 09:57:43.235 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 19 ms
+22-Nov-2019 09:57:43.236 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 09:57:47.710 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 09:57:53.539 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 10,303 ms
+22-Nov-2019 09:57:53.544 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 09:57:53.552 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 09:57:53.556 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 11160 ms
+22-Nov-2019 14:14:48.787 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 14:14:48.788 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 14:14:48.789 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 14:14:48.789 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 14:14:48.789 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 14:14:48.789 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 14:14:48.789 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 14:14:48.790 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 14:14:48.790 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 14:14:48.790 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:14:48.790 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:14:48.790 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 14:14:48.790 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 14:14:48.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 14:14:48.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 14:14:48.791 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:14:48.792 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:14:48.792 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 14:14:48.793 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 14:14:48.796 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 14:14:49.365 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 14:14:49.509 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 14:14:49.516 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 14:14:49.518 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1054 ms
+22-Nov-2019 14:14:49.557 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 14:14:49.557 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 14:14:49.567 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 14:14:50.009 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [186] milliseconds.
+22-Nov-2019 14:14:50.028 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 461 ms
+22-Nov-2019 14:14:50.028 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 14:14:51.022 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 994 ms
+22-Nov-2019 14:14:51.022 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 14:14:51.060 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 38 ms
+22-Nov-2019 14:14:51.060 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 14:14:51.095 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 35 ms
+22-Nov-2019 14:14:51.096 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 14:14:51.120 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 24 ms
+22-Nov-2019 14:14:51.121 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 14:14:58.594 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 14:15:04.866 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 13,745 ms
+22-Nov-2019 14:15:04.872 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 14:15:04.882 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 14:15:04.887 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 15368 ms
+22-Nov-2019 14:58:41.721 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 14:58:41.722 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 14:58:41.722 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 14:58:41.722 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 14:58:41.722 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 14:58:41.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 14:58:41.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 14:58:41.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 14:58:41.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 14:58:41.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:58:41.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:58:41.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 14:58:41.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 14:58:41.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 14:58:41.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 14:58:41.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:58:41.725 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 14:58:41.725 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 14:58:41.726 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 14:58:41.730 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 14:58:42.311 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 14:58:42.521 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 14:58:42.531 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 14:58:42.532 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1167 ms
+22-Nov-2019 14:58:42.567 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 14:58:42.567 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 14:58:42.578 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 14:58:43.047 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [205] milliseconds.
+22-Nov-2019 14:58:43.065 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 487 ms
+22-Nov-2019 14:58:43.066 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 14:58:43.382 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 316 ms
+22-Nov-2019 14:58:43.393 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 14:58:43.421 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 39 ms
+22-Nov-2019 14:58:43.421 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 14:58:43.452 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 31 ms
+22-Nov-2019 14:58:43.452 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 14:58:43.472 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 20 ms
+22-Nov-2019 14:58:43.472 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 14:58:48.598 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 14:58:55.001 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 11,529 ms
+22-Nov-2019 14:58:55.010 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 14:58:55.021 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 14:58:55.032 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 12499 ms
+22-Nov-2019 16:45:17.922 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 16:45:17.923 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 16:45:17.923 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 16:45:17.923 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 16:45:17.924 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 16:45:17.924 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 16:45:17.924 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 16:45:17.924 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 16:45:17.924 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 16:45:17.925 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 16:45:17.925 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 16:45:17.925 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 16:45:17.925 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 16:45:17.925 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 16:45:17.926 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 16:45:17.926 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 16:45:17.926 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 16:45:17.927 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 16:45:17.928 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 16:45:17.931 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 16:45:18.513 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 16:45:18.620 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 16:45:18.629 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 16:45:18.631 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1028 ms
+22-Nov-2019 16:45:18.657 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 16:45:18.657 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 16:45:18.669 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 16:45:19.101 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [191] milliseconds.
+22-Nov-2019 16:45:19.119 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 451 ms
+22-Nov-2019 16:45:19.119 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 16:45:19.450 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 331 ms
+22-Nov-2019 16:45:19.450 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 16:45:19.478 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 28 ms
+22-Nov-2019 16:45:19.479 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 16:45:19.509 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 30 ms
+22-Nov-2019 16:45:19.509 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 16:45:19.533 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 24 ms
+22-Nov-2019 16:45:19.534 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 16:45:24.242 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 16:45:30.410 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 10,876 ms
+22-Nov-2019 16:45:30.415 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 16:45:30.427 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 16:45:30.431 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 11799 ms
+22-Nov-2019 18:32:53.308 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.36
+22-Nov-2019 18:32:53.309 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jun 9 2016 13:55:50 UTC
+22-Nov-2019 18:32:53.309 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.36.0
+22-Nov-2019 18:32:53.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2019 18:32:53.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2019 18:32:53.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2019 18:32:53.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             D:\Program Files\Java\jdk1.8.0_201\jre
+22-Nov-2019 18:32:53.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_201-b09
+22-Nov-2019 18:32:53.310 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2019 18:32:53.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 18:32:53.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 18:32:53.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+22-Nov-2019 18:32:53.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\conf\logging.properties
+22-Nov-2019 18:32:53.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2019 18:32:53.311 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\endorsed
+22-Nov-2019 18:32:53.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 18:32:53.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36
+22-Nov-2019 18:32:53.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\temp
+22-Nov-2019 18:32:53.313 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded APR based Apache Tomcat Native library 1.2.7 using APR version 1.5.2.
+22-Nov-2019 18:32:53.317 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+22-Nov-2019 18:32:53.869 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized (OpenSSL 1.0.2h  3 May 2016)
+22-Nov-2019 18:32:54.044 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 18:32:54.053 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 18:32:54.055 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1211 ms
+22-Nov-2019 18:32:54.096 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2019 18:32:54.097 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.36
+22-Nov-2019 18:32:54.107 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs
+22-Nov-2019 18:32:54.582 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [183] milliseconds.
+22-Nov-2019 18:32:54.604 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\docs has finished in 497 ms
+22-Nov-2019 18:32:54.604 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples
+22-Nov-2019 18:32:55.645 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\examples has finished in 1,041 ms
+22-Nov-2019 18:32:55.646 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager
+22-Nov-2019 18:32:55.682 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\host-manager has finished in 37 ms
+22-Nov-2019 18:32:55.683 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager
+22-Nov-2019 18:32:55.732 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\manager has finished in 48 ms
+22-Nov-2019 18:32:55.732 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT
+22-Nov-2019 18:32:55.761 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\ROOT has finished in 29 ms
+22-Nov-2019 18:32:55.761 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr
+22-Nov-2019 18:33:02.583 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2019 18:33:08.579 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory C:\Users\10295\Desktop\solr\apache-tomcat-8.0.36\webapps\solr has finished in 12,818 ms
+22-Nov-2019 18:33:08.587 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-apr-8080"]
+22-Nov-2019 18:33:08.597 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-apr-8009"]
+22-Nov-2019 18:33:08.600 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 14544 ms
