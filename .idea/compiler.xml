@@ -11,6 +11,7 @@
         <module name="groupone" />
         <module name="springboot_dubbo_consumer" />
         <module name="Six-pulse" />
+        <module name="completeSix" />
         <module name="springboot_dubbo_provider" />
       </profile>
     </annotationProcessing>
